@@ -1,0 +1,707 @@
+plugin,name,old_formId,new_formId
+Apocalypse - Magic of Skyrim.esp,Raise Wall,0xAC00CC14,0xA700CC14
+Apocalypse - Magic of Skyrim.esp,Control Weather,0xAC084A9C,0xA7084A9C
+Apocalypse - Magic of Skyrim.esp,Deep Storage,0xAC003907,0xA7003907
+MysticismMagic.esp,Windrunner,0xAE10D265,0xA910D265
+Apocalypse - Magic of Skyrim.esp,Longstride,0xAC00541E,0xA700541E
+Triumvirate - Mage Archetypes.esp,Druidcraft,0xB528E6E9,0xB028E6E9
+MysticismMagic.esp,Flame Shield,0xAE29265D,0xA929265D
+MysticismMagic.esp,Ice Shield,0xAE29266C,0xA929266C
+MysticismMagic.esp,Lightning Shield,0xAE292665,0xA9292665
+MysticismMagic.esp,Venom Shield,0xAE292673,0xA9292673
+Triumvirate - Mage Archetypes.esp,Pull Through Shadows,0xB530D2A4,0xB030D2A4
+Apocalypse - Magic of Skyrim.esp,Lodesphere,0xAC085570,0xA7085570
+Apocalypse - Magic of Skyrim.esp,Hold,0xAC074B84,0xA7074B84
+Apocalypse - Magic of Skyrim.esp,Tumble Magnet,0xAC00A5EB,0xA700A5EB
+Apocalypse - Magic of Skyrim.esp,Knowledge is Power,0xAC00CC16,0xA700CC16
+Fanatical Enemies.esp,Against Divinity,0xC5452C4A,0xC0452C4A
+Apocalypse - Magic of Skyrim.esp,Hethoth's Grimoire,0xAC00C13D,0xA700C13D
+MysticismMagic.esp,Symmetry,0xAEFF19E0,0xA9FF19E0
+Fanatical Enemies.esp,Spite,0xC5678432,0xC0678432
+MysticismMagic.esp,Open Novice Lock,0xAE3C2436,0xA93C2436
+Apocalypse - Magic of Skyrim.esp,Alarm,0xAC0064A2,0xA70064A2
+Apocalypse - Magic of Skyrim.esp,Loot Magnet,0xAC0DD9E7,0xA70DD9E7
+MysticismMagic.esp,Dispel,0xAE2ABBDC,0xA92ABBDC
+MysticismMagic.esp,Windwalker,0xAE10D264,0xA910D264
+MysticismMagic.esp,Poison Shell,0xAE292672,0xA9292672
+MysticismMagic.esp,Shock Shell,0xAE292664,0xA9292664
+MysticismMagic.esp,Frost Shell,0xAE29266B,0xA929266B
+MysticismMagic.esp,Fire Shell,0xAE29265E,0xA929265E
+Apocalypse - Magic of Skyrim.esp,Tharn's Prison,0xAC002E25,0xA7002E25
+Triumvirate - Mage Archetypes.esp,Shadow Stride,0xB5381AF8,0xB0381AF8
+Apocalypse - Magic of Skyrim.esp,Wither,0xAC12649C,0xA712649C
+MysticismMagic.esp,Open Adept Lock,0xAE3C7540,0xA93C7540
+Apocalypse - Magic of Skyrim.esp,Reynos' Fins,0xAC007A94,0xA7007A94
+MysticismMagic.esp,Detect All,0xAEC857B9,0xA9C857B9
+MysticismMagic.esp,Sea Stride,0xAE1B3907,0xA91B3907
+Apocalypse - Magic of Skyrim.esp,Talons of Nirn,0xAC097A50,0xA7097A50
+Apocalypse - Magic of Skyrim.esp,Thrumming Stone,0xAC124EC7,0xA7124EC7
+Gourmet.esp,Transmute Bread,0xFE9E99EE,0xFE97D9EE
+MysticismMagic.esp,Swift Swim,0xAE7D0721,0xA97D0721
+Apocalypse - Magic of Skyrim.esp,Drop Zone,0xAC00B646,0xA700B646
+Apocalypse - Magic of Skyrim.esp,Locate Object,0xAC00C143,0xA700C143
+Apocalypse - Magic of Skyrim.esp,Perilous Path,0xAC0F2181,0xA70F2181
+MysticismMagic.esp,Ash Cloud,0xAE1901E5,0xA91901E5
+MysticismMagic.esp,Cinder Storm,0xAE4B065B,0xA94B065B
+Apocalypse - Magic of Skyrim.esp,Entomb,0xAC04581C,0xA704581C
+Triumvirate - Mage Archetypes.esp,Fissure,0xB5423DB0,0xB0423DB0
+MysticismMagic.esp,Feather,0xAE292684,0xA9292684
+MysticismMagic.esp,Weakness to Fire,0xAE292677,0xA9292677
+MysticismMagic.esp,Weakness to Frost,0xAE29267C,0xA929267C
+MysticismMagic.esp,Weakness to Shock,0xAE29267B,0xA929267B
+MysticismMagic.esp,Weakness to Poison,0xAE292680,0xA9292680
+Apocalypse - Magic of Skyrim.esp,Spell Twine,0xAC006A30,0xA7006A30
+Apocalypse - Magic of Skyrim.esp,Prepare for Adventure,0xAC007FFD,0xA7007FFD
+Triumvirate - Mage Archetypes.esp,Eye of the All-Maker,0xB53A0127,0xB03A0127
+Apocalypse - Magic of Skyrim.esp,Milestones,0xAC0A59D5,0xA70A59D5
+Apocalypse - Magic of Skyrim.esp,Natural Barrier,0xAC0AE5B7,0xA70AE5B7
+Apocalypse - Magic of Skyrim.esp,Fabricate Object,0xAC003902,0xA7003902
+Fanatical Enemies.esp,Blessing of Agility,0xC5413920,0xC0413920
+Apocalypse - Magic of Skyrim.esp,Strength of Earth,0xAC00D6F5,0xA700D6F5
+Triumvirate - Mage Archetypes.esp,Stave of Ferocity,0xB541EC9E,0xB041EC9E
+MysticismMagic.esp,Armoreater,0xAE2A19B9,0xA92A19B9
+MysticismMagic.esp,Dwemerbane,0xAE2A19B3,0xA92A19B3
+MysticismMagic.esp,Encumber,0xAEAC7E8B,0xA9AC7E8B
+MysticismMagic.esp,Grand Telekinesis,0xAE19A3ED,0xA919A3ED
+Apocalypse - Magic of Skyrim.esp,Battletide,0xAC05ECEE,0xA705ECEE
+Fanatical Enemies.esp,Imbue Weapon - Flame II,0xC56992F2,0xC06992F2
+Fanatical Enemies.esp,Imbue Weapon - Cleric Fire,0xC571CE07,0xC071CE07
+Fanatical Enemies.esp,Imbue Weapon - Holy Infusion II,0xC56CBD40,0xC06CBD40
+Fanatical Enemies.esp,Imbue Weapon - Holy Infusion I,0xC56CBD3E,0xC06CBD3E
+Apocalypse - Magic of Skyrim.esp,Teleport,0xAC046DBB,0xA7046DBB
+Triumvirate - Mage Archetypes.esp,Night Gate,0xB5025EB2,0xB0025EB2
+Triumvirate - Mage Archetypes.esp,Sacred Hearth,0xB53B9680,0xB03B9680
+MysticismMagic.esp,Burden,0xAE3C7547,0xA93C7547
+Apocalypse - Magic of Skyrim.esp,Tremble,0xAC098FFF,0xA7098FFF
+Triumvirate - Mage Archetypes.esp,Step Through Shadows,0xB530D2A7,0xB030D2A7
+Apocalypse - Magic of Skyrim.esp,Sotha's Maelstrom,0xAC086B64,0xA7086B64
+MysticismMagic.esp,Weight of the World,0xAE4B065F,0xA94B065F
+MysticismMagic.esp,Swordbreaker,0xAE9E9213,0xA99E9213
+Apocalypse - Magic of Skyrim.esp,Undermine,0xAC002E31,0xA7002E31
+Triumvirate - Mage Archetypes.esp,Impenetrable Grove,0xB52A7C1B,0xB02A7C1B
+Triumvirate - Mage Archetypes.esp,Shadow Dance,0xB530818A,0xB030818A
+Apocalypse - Magic of Skyrim.esp,Grace of Water,0xAC0AAF9E,0xA70AAF9E
+Triumvirate - Mage Archetypes.esp,Stave of Binding,0xB53AF45F,0xB03AF45F
+MysticismMagic.esp,Destroy Construct,0xAE844E4A,0xA9844E4A
+MysticismMagic.esp,Disintegrate Weapon,0xAE7B720C,0xA97B720C
+Apocalypse - Magic of Skyrim.esp,Mark and Recall,0xAC0AF0A4,0xA70AF0A4
+MysticismMagic.esp,Burden Rune,0xAEAEB598,0xA9AEB598
+Apocalypse - Magic of Skyrim.esp,Acceleration Rune,0xAC124EC9,0xA7124EC9
+MysticismMagic.esp,Corrode Armor,0xAE29C8AB,0xA929C8AB
+Apocalypse - Magic of Skyrim.esp,Malviser's Gauntlet,0xAC002E2A,0xA7002E2A
+Fanatical Enemies.esp,Imbue Weapon - Stamina Drain,0xC570DAF3,0xC070DAF3
+Fanatical Enemies.esp,Imbue Weapon - Bleeding I,0xC568F0D2,0xC068F0D2
+Fanatical Enemies.esp,Imbue Weapon - Poison I,0xC56FE7A8,0xC06FE7A8
+Fanatical Enemies.esp,Imbue Weapon - Flame I,0xC56941E4,0xC06941E4
+Fanatical Enemies.esp,Imbue Weapon - Frost Strike,0xC5670AA2,0xC0670AA2
+Apocalypse - Magic of Skyrim.esp,Wind Running,0xAC005F2B,0xA7005F2B
+MysticismJumpSpells.esp,Springheel,0xFE94C805,0xFE8E1805
+Triumvirate - Mage Archetypes.esp,Force of Nature,0xB528E6EB,0xB028E6EB
+Apocalypse - Magic of Skyrim.esp,Ocato's Recital,0xAC006FA6,0xA7006FA6
+Apocalypse - Magic of Skyrim.esp,Thundering Hooves,0xAC007A8C,0xA7007A8C
+MysticismMagic.esp,Slowfall,0xAE2977A1,0xA92977A1
+Triumvirate - Mage Archetypes.esp,Wildshape,0xB5191252,0xB0191252
+Apocalypse - Magic of Skyrim.esp,Detonate Lock,0xAC00AB69,0xA700AB69
+MysticismMagic.esp,Open Expert Lock,0xAE3C7542,0xA93C7542
+Fanatical Enemies.esp,Imbue Weapon - Shadows,0xC56E0176,0xC06E0176
+Fanatical Enemies.esp,Imbue Weapon - Vile Poison II,0xC56FE7B0,0xC06FE7B0
+Fanatical Enemies.esp,Imbue Weapon - Vile Poison I,0xC56FE7AE,0xC06FE7AE
+Fanatical Enemies.esp,Imbue Weapon - Withering I,0xC569E3FE,0xC069E3FE
+Fanatical Enemies.esp,Imbue Weapon - Mage Curse II,0xC57089E0,0xC07089E0
+Fanatical Enemies.esp,Imbue Weapon - Mage Curse I,0xC57089DE,0xC07089DE
+MysticismMagic.esp,Pack Mule,0xAE292689,0xA9292689
+MysticismJumpSpells.esp,Leap,0xFE94C802,0xFE8E1802
+Fanatical Enemies.esp,Imbue Weapon - Poison III,0xC56FE7AC,0xC06FE7AC
+MysticismMagic.esp,The Unwelcome Guest,0xAE4B0648,0xA94B0648
+Wintersun - Faiths of Skyrim.esp,Divine Intervention,0xD43775CC,0xCF3775CC
+Triumvirate - Mage Archetypes.esp,Chase the Horizon,0xB528E6E7,0xB028E6E7
+Fanatical Enemies.esp,Imbue Weapon - Holy Infusion IV,0xC56CBD44,0xC06CBD44
+Fanatical Enemies.esp,Imbue Weapon - Sinister Attacks I,0xC57038CE,0xC07038CE
+Fanatical Enemies.esp,Imbue Weapon - Bleeding II,0xC56941DA,0xC06941DA
+Fanatical Enemies.esp,Imbue Weapon - Sinister Attacks II,0xC57038D0,0xC07038D0
+Fanatical Enemies.esp,Imbue Weapon - Withering II,0xC569E400,0xC069E400
+Fanatical Enemies.esp,Imbue Weapon - Holy Infusion III,0xC56CBD42,0xC06CBD42
+Fanatical Enemies.esp,Imbue Weapon - Poison II,0xC56FE7AA,0xC06FE7AA
+SPERG-SSE.esp,Bound Battleaxe,0xAF038600,0xAA038600
+SPERG-SSE.esp,Bound Sword,0xAF038603,0xAA038603
+Apocalypse - Magic of Skyrim.esp,Conjure Lich,0xAC01236A,0xA701236A
+Apocalypse - Magic of Skyrim.esp,Conjure Dremora Assassin,0xAC0128F7,0xA70128F7
+Apocalypse - Magic of Skyrim.esp,Conjure Weeping Daedra,0xAC08FDED,0xA708FDED
+MysticismMagic.esp,Conjure Dremora Hunter,0xAE00FFF4,0xA900FFF4
+SPERG-SSE.esp,Flame Thrall,0xAF02D31B,0xAA02D31B
+Vulcano.esp,Conjure Molten Monarch,0xFE97C981,0xFE911981
+MysticismMagic.esp,Bound Warhammer,0xAEDED0F7,0xA9DED0F7
+MysticismMagic.esp,Conjure Spectral Manbeast,0xAE43BD72,0xA943BD72
+Apocalypse - Magic of Skyrim.esp,Conjure Bear Totem,0xAC04734D,0xA704734D
+Apocalypse - Magic of Skyrim.esp,Conjure Battlemage,0xAC08868C,0xA708868C
+mihailaegisofthesigil.esp,Conjure Aegis of the Sigil,0xFE79C807,0xFE74D807
+Vulcano.esp,Conjure Molten Atronach,0xFE97C980,0xFE911980
+SPERG-SSE.esp,Conjure Flame Atronach,0xAF02B292,0xAA02B292
+Fanatical Enemies.esp,Rebind Soul,0xC5E85159,0xC0E85159
+MysticismMagic.esp,Conjure Skeleton Mage,0xAE413549,0xA9413549
+Apocalypse - Magic of Skyrim.esp,Banish Living,0xAC092B91,0xA7092B91
+Apocalypse - Magic of Skyrim.esp,Rampage,0xAC05E222,0xA705E222
+MysticismMagic.esp,Oblivion's Embrace,0xAEDB04D2,0xA9DB04D2
+AkaviriFollower.esp,Summon Halberdier Sujiwara,0xFEA50864,0xFE9E4864
+AkaviriFollower.esp,Summon General Taira,0xFEA50854,0xFE9E4854
+Apocalypse - Magic of Skyrim.esp,Conjure Deadeye Captain,0xAC037E17,0xA7037E17
+Arclight.esp,Conjure Arclight Monarch,0xFE97D981,0xFE912981
+mihailstormgolem.esp,Conjure Storm Golem,0xFE794817,0xFE745817
+SPERG-SSE.esp,Frost Thrall,0xAF02D31D,0xAA02D31D
+SPERG-SSE.esp,Conjure Frost Atronach,0xAF02D318,0xAA02D318
+mihailscampstandalone.esp,Conjure Scamp,0xFE7A4817,0xFE755817
+MysticismMagic.esp,Soul Harvest,0xAE9F8524,0xA99F8524
+Fanatical Enemies.esp,Oblivion Rage,0xC54B59DC,0xC04B59DC
+Apocalypse - Magic of Skyrim.esp,Power of the Master,0xAC01857E,0xA701857E
+Apocalypse - Magic of Skyrim.esp,Consuming Power,0xAC016F92,0xA7016F92
+Apocalypse - Magic of Skyrim.esp,Conjure Avenging Wraith,0xAC017A8E,0xA7017A8E
+AkaviriFollower.esp,Summon Kinomaru,0xFEA5084D,0xFE9E484D
+Apocalypse - Magic of Skyrim.esp,Atronach Mark,0xAC02CD7E,0xA702CD7E
+Apocalypse - Magic of Skyrim.esp,Conjure Dremora Pit Fighter,0xAC012364,0xA7012364
+Apocalypse - Magic of Skyrim.esp,Conjure Xivilai Sorcerer,0xAC1228A8,0xA71228A8
+Apocalypse - Magic of Skyrim.esp,Daedric Mind,0xAC0BB97E,0xA70BB97E
+Apocalypse - Magic of Skyrim.esp,Conjure Dremora Churl,0xAC012359,0xA7012359
+DCR_KingCrusaderMegaPack_SSE.esp,Locust Storm I,0xFE65184F,0xFE60584F
+Apocalypse - Magic of Skyrim.esp,Azure Reconstruction,0xAC088694,0xA7088694
+Apocalypse - Magic of Skyrim.esp,Conjure Gateway Wraith,0xAC0BB983,0xA70BB983
+Elemental Destruction Magic Redux.esp,Wind Thrall,0xFE97A91A,0xFE90F91A
+Fettered Fragments.esp,Fragments Fettering - Discharge Whip,0xFE71D825,0xFE6CF825
+Fettered Fragments.esp,Fragments Fettering - Carmine Whip,0xFE71D830,0xFE6CF830
+Fettered Fragments.esp,Fragments Fettering - Mending Whip,0xFE71D826,0xFE6CF826
+DCR_KingCrusaderMegaPack_SSE.esp,Locust Storm II,0xFE65184E,0xFE60584E
+Apocalypse - Magic of Skyrim.esp,Soul Cloak,0xAC140B03,0xA7140B03
+mihailogrim.esp,Conjure Ogrim,0xFE79B80A,0xFE74C80A
+SPERG-SSE.esp,Bound Bow,0xAF038601,0xAA038601
+Fanatical Enemies.esp,Conjure Keeper,0xC5E85161,0xC0E85161
+Fettered Fragments.esp,Fragments Fettering - Mending Scythe,0xFE71D82C,0xFE6CF82C
+mihailashgolemexpansion.esp,Summon Ash Golem,0x9800591A,0x9300591A
+MysticismMagic.esp,Conjure Ash Guardian,0xAEE7ADBD,0xA9E7ADBD
+Triumvirate - Mage Archetypes.esp,Call Snow Leopard,0xB5168A25,0xB0168A25
+MysticismMagic.esp,Conjure Skeleton Warrior,0xAE40933C,0xA940933C
+Vulcano.esp,Conjure Molten Wyrm,0xFE97C94C,0xFE91194C
+Triumvirate - Mage Archetypes.esp,Create Water Totem,0xB53BE79F,0xB03BE79F
+ogBogmort.esp,Call of the Marsh,0xFE7B2878,0xFE763878
+MysticismMagic.esp,Bound War Axe,0xAEDD3BED,0xA9DD3BED
+MysticismMagic.esp,Conjure Wrathman Warlock,0xAE01F2FB,0xA901F2FB
+MysticismMagic.esp,Conjure Wrathman Marksman,0xAE01F2FA,0xA901F2FA
+MysticismMagic.esp,Conjure Gargoyle,0xAEE7FED0,0xA9E7FED0
+Elemental Destruction Magic Redux.esp,Conjure Earth Atronach,0xFE97A946,0xFE90F946
+MysticismMagic.esp,Conjure Skeleton Archer,0xAE413545,0xA9413545
+mihailscampstandalone.esp,Conjure Banekamp,0xFE7A481A,0xFE75581A
+Desecration.esp,Conjure Necrotic Flame Monarch,0xFE97E9A0,0xFE9139A0
+Apocalypse - Magic of Skyrim.esp,Daedric Crescent,0xAC01A0A4,0xA701A0A4
+Apocalypse - Magic of Skyrim.esp,Conjure Dremora Champion,0xAC0128DF,0xA70128DF
+Apocalypse - Magic of Skyrim.esp,Conjure Dremora Honor Guard,0xAC0133D6,0xA70133D6
+mihailhavocrelsandruinachs.esp,Conjure Ruinach Demolisher,0xFE7A3877,0xFE754877
+mihailhavocrelsandruinachs.esp,Conjure Ruinach Blazemaul,0xFE7A387A,0xFE75487A
+mihailbanekins.esp,Conjure Coldharbour Banekin,0x9900AA2E,0x9400AA2E
+mihailbonecolossiandgravelords.esp,Conjure Stonefire Bone Colossus,0xFE7A1990,0xFE752990
+Triumvirate - Mage Archetypes.esp,Conjure Temple Grim,0xB522E322,0xB022E322
+Apocalypse - Magic of Skyrim.esp,Corpse Explosion,0xAC11E0A5,0xA711E0A5
+mihailbanekins.esp,Conjure Deadlands Banekin,0x99056A38,0x94056A38
+Apocalypse - Magic of Skyrim.esp,Necrowitch,0xAC016F95,0xA7016F95
+Fettered Fragments.esp,Fragments Fettering - Discharge Scythe,0xFE71D82B,0xFE6CF82B
+Fettered Fragments.esp,Fragments Fettering - Sleet Scythe,0xFE71D82E,0xFE6CF82E
+Fettered Fragments.esp,Fragments Fettering - Ember Scythe,0xFE71D82D,0xFE6CF82D
+DwemerSpectresLegendary.esp,Dwemer Animunculi,0x9D004E3C,0x98004E3C
+MysticismMagic.esp,Conjure Dwarven Spider,0xAE446019,0xA9446019
+MysticismMagic.esp,Conjure Spectral Steed,0xAE43BD6D,0xA943BD6D
+Apocalypse - Magic of Skyrim.esp,Oathbound Guardian,0xAC018AE7,0xA7018AE7
+MysticismMagic.esp,Conjure Ancestral Assassin,0xAE43BD87,0xA943BD87
+MysticismMagic.esp,Conjure Ancestral Wizard,0xAE43BD82,0xA943BD82
+MysticismMagic.esp,Conjure Spectral Dire Wolf,0xAE43BD62,0xA943BD62
+mihailbonecolossiandgravelords.esp,Conjure Dragonfire Bone Colossus,0xFE7A198F,0xFE75298F
+mihailbonecolossiandgravelords.esp,Conjure Thunderchild Bone Colossus,0xFE7A1991,0xFE752991
+Triumvirate - Mage Archetypes.esp,Conjure Magister,0xB522E326,0xB022E326
+Triumvirate - Mage Archetypes.esp,Conjure Ravagor,0xB522E324,0xB022E324
+MysticismMagic.esp,Conjure Dremora Warrior,0xAE41D74F,0xA941D74F
+MysticismMagic.esp,Conjure Ancestral Guardian,0xAE43BD7A,0xA943BD7A
+mihailpossesseddaedricarmors.esp,Conjure Doomsday of Blades,0xFE7A6808,0xFE757808
+Apocalypse - Magic of Skyrim.esp,Conjure Herne,0xAC0128E8,0xA70128E8
+Apocalypse - Magic of Skyrim.esp,Conjure Xivilai Lord,0xAC012370,0xA7012370
+AkaviriFollower.esp,Summon Archer Yueja,0xFEA5085B,0xFE9E485B
+MysticismMagic.esp,Bound Shield,0xAEDC48DA,0xA9DC48DA
+Fettered Fragments.esp,Fragments Fettering - Spectral Scythe,0xFE71D829,0xFE6CF829
+Apocalypse - Magic of Skyrim.esp,Conjure Dremora Mentor,0xAC0C64B1,0xA70C64B1
+Fettered Fragments.esp,Fragments Fettering - Ember Whip,0xFE71D82F,0xFE6CF82F
+MysticismMagic.esp,Conjure Skeleton Champion,0xAE41864C,0xA941864C
+SPERG-SSE.esp,Conjure Storm Atronach,0xAF02D319,0xAA02D319
+Elemental Destruction Magic Redux.esp,Conjure Wind Atronach,0xFE97A944,0xFE90F944
+Apocalypse - Magic of Skyrim.esp,Conjure Nether Lich,0xAC0128FA,0xA70128FA
+Fanatical Enemies.esp,Healing Spriggan,0xC5EC79E3,0xC0EC79E3
+Triumvirate - Mage Archetypes.esp,Create Tree Totem,0xB53C38C5,0xB03C38C5
+Apocalypse - Magic of Skyrim.esp,Conjure Cat Totem,0xAC027144,0xA7027144
+Fettered Fragments.esp,Fragments Fettering - Carmine Scythe,0xFE71D828,0xFE6CF828
+Fettered Fragments.esp,Fragments Fettering - Verdure Scythe,0xFE71D82A,0xFE6CF82A
+Elemental Destruction Magic Redux.esp,Water Thrall,0xFE97A91B,0xFE90F91B
+Elemental Destruction Magic Redux.esp,Conjure Water Atronach,0xFE97A940,0xFE90F940
+mihailhavocrelsandruinachs.esp,Conjure Havocrel,0xFE7A385E,0xFE75485E
+MysticismMagic.esp,Conjure Ash Husk,0xAE45F595,0xA945F595
+MysticismMagic.esp,Conjure Gargoyle Brute,0xAEE7FED5,0xA9E7FED5
+Triumvirate - Mage Archetypes.esp,Create Earth Totem,0xB535E36E,0xB035E36E
+Billyro's Weapons.esp,Summon Daemon,0xFE6F3903,0xFE6A6903
+Triumvirate - Mage Archetypes.esp,Call Hound of Hircine,0xB527009A,0xB027009A
+DCR_KingCrusaderMegaPack_SSE.esp,Locust Storm III,0xFE651841,0xFE605841
+MysticismMagic.esp,Daedric Cure,0xAEDB04D0,0xA9DB04D0
+AkaviriFollower.esp,Summon Agyo the Giant,0xFEA50856,0xFE9E4856
+AttackoDaedra.esp,Summon Abhorrent Behemoth,0x9C01A821,0x9701A821
+Triumvirate - Mage Archetypes.esp,Conjure Leviathan,0xB522E328,0xB022E328
+mihailhelhest.esp,Summon Helhest,0xFE7A0806,0xFE751806
+Abyss.esp,Conjure Shadow Wolf,0xFE97FC31,0xFE914C31
+Triumvirate - Mage Archetypes.esp,Call Raven,0xB5181F3B,0xB0181F3B
+SPERG-SSE.esp,Storm Thrall,0xAF02D31F,0xAA02D31F
+mihailbonecolossiandgravelords.esp,Conjure Bone Colossus,0xFE7A198E,0xFE75298E
+Triumvirate - Mage Archetypes.esp,Summon Sun Fylgja,0xB53BE7AA,0xB03BE7AA
+MysticismMagic.esp,Conjure Spectral Bear,0xAE43BD6C,0xA943BD6C
+MysticismMagic.esp,Conjure Spectral Sabre Cat,0xAE43BD66,0xA943BD66
+Triumvirate - Mage Archetypes.esp,Conjure Gremlin,0xB522E31F,0xB022E31F
+Fettered Fragments.esp,Fragments Fettering - Sleet Whip,0xFE71D827,0xFE6CF827
+Triumvirate - Mage Archetypes.esp,Summon Wind Fylgja,0xB535E384,0xB035E384
+Triumvirate - Mage Archetypes.esp,Call Rattlesnakes,0xB515460A,0xB015460A
+MysticismMagic.esp,Conjure High Seeker,0xAE45538C,0xA945538C
+DBM_RelicNotifications.esp,Summon Relic Storage Container,0x47896AA2,0x48896AA2
+Apocalypse - Magic of Skyrim.esp,Summoning Rune,0xAC124EC5,0xA7124EC5
+MysticismMagic.esp,Mark,0xAE45536C,0xA945536C
+MysticismMagic.esp,Planar Anchor,0xAE4CECE5,0xA94CECE5
+Fettered Fragments.esp,Fragments Fettering - Spectral Whip,0xFE71D831,0xFE6CF831
+Fettered Fragments.esp,Fragments Fettering - Verdure Whip,0xFE71D824,0xFE6CF824
+mihailashgolemexpansion.esp,Summon Omen of Cinders,0x98000812,0x93000812
+Apocalypse - Magic of Skyrim.esp,Flames of Oblivion,0xAC0BA392,0xA70BA392
+MysticismMagic.esp,Conjure Dremora Sorcerer,0xAE00FFF5,0xA900FFF5
+Arclight.esp,Conjure Arclight Atronach,0xFE97D980,0xFE912980
+MysticismMagic.esp,Conjure Death Hound,0xAEE7FEC6,0xA9E7FEC6
+Desecration.esp,Conjure Necrotic Flame Atronach,0xFE97E99F,0xFE91399F
+Apocalypse - Magic of Skyrim.esp,Conjure Craftlord,0xAC123E5B,0xA7123E5B
+Apocalypse - Magic of Skyrim.esp,Conjure Kyrkrim,0xAC100032,0xA7100032
+MysticismMagic.esp,Translimination,0xAE4CECE6,0xA94CECE6
+AttackoDaedra.esp,Summon Anthropoid Daedroth,0x9C01A823,0x9701A823
+AttackoDaedra.esp,Summon Fire-Tongued Daedroth,0x9C01A820,0x9701A820
+AttackoDaedra.esp,Summon Bipedal Charyboid Daedra,0x9C01A825,0x9701A825
+AttackoDaedra.esp,Summon Sulking Twilight,0x9C01A827,0x9701A827
+Fanatical Enemies.esp,Summon Pure-Blooded Vampire,0xC5CDBBEE,0xC0CDBBEE
+MysticismMagic.esp,Conjure Volkihar Hound,0xAEE7FECB,0xA9E7FECB
+Elemental Destruction Magic Redux.esp,Earth Thrall,0xFE97A919,0xFE90F919
+Apocalypse - Magic of Skyrim.esp,Conjure Lord of Bindings,0xAC019B2D,0xA7019B2D
+Apocalypse - Magic of Skyrim.esp,Conjure Spirit Cat,0xAC062DA4,0xA7062DA4
+Triumvirate - Mage Archetypes.esp,Call Gray Wolf,0xB5168A23,0xB0168A23
+Apocalypse - Magic of Skyrim.esp,Bond of Summoning,0xAC07C84E,0xA707C84E
+AkaviriFollower.esp,Summon Kensei,0xFEA5096A,0xFE9E496A
+AkaviriFollower.esp,Summon Dragonguard Monk Akamizu,0xFEA5084E,0xFE9E484E
+MysticismMagic.esp,Recall,0xAE45536D,0xA945536D
+Fanatical Enemies.esp,Mass Reanimation,0xC5D73A41,0xC0D73A41
+SPERG-SSE.esp,Bound Dagger,0xAF00C344,0xAA00C344
+Abyss.esp,Conjure Shadow Atronach,0xFE97FB26,0xFE914B26
+Abyss.esp,Conjure Shadow Monarch,0xFE97FB0E,0xFE914B0E
+MysticismMagic.esp,Greater Lightning Rune,0xAE2FCC82,0xA92FCC82
+MysticismMagic.esp,Thundering Grasp,0xAE1D702F,0xA91D702F
+Triumvirate - Mage Archetypes.esp,Draining Shroud,0xB531C5C1,0xB031C5C1
+Abyss.esp,Shadow Touch,0xFE97FA8C,0xFE914A8C
+Triumvirate - Mage Archetypes.esp,Azra's Wrath,0xB53216CA,0xB03216CA
+Abyss.esp,Abyssal Shadow Touch,0xFE97FA8D,0xFE914A8D
+Abyss.esp,Shadow Drain,0xFE97FB1D,0xFE914B1D
+MysticismMagic.esp,Flash Freeze,0xAEA07827,0xA9A07827
+Fanatical Enemies.esp,Frost Disease,0xC5E39211,0xC0E39211
+Fanatical Enemies.esp,Ruin,0xC54D3FFA,0xC04D3FFA
+Apocalypse - Magic of Skyrim.esp,Apocalypse,0xAC023316,0xA7023316
+Apocalypse - Magic of Skyrim.esp,Flamestrike,0xAC02E0C0,0xA702E0C0
+Fanatical Enemies.esp,Meteor Rain,0xC53C8192,0xC03C8192
+Apocalypse - Magic of Skyrim.esp,Static Dome,0xAC08F317,0xA708F317
+Apocalypse - Magic of Skyrim.esp,Sleet Storm,0xAC027F2E,0xA7027F2E
+Apocalypse - Magic of Skyrim.esp,Shattering Crystal,0xAC108627,0xA7108627
+MysticismMagic.esp,Freezing Grasp,0xAE1D7031,0xA91D7031
+Apocalypse - Magic of Skyrim.esp,Third Era Apocalypse,0xAC120FA8,0xA7120FA8
+Triumvirate - Mage Archetypes.esp,Nightblade,0xB5330A43,0xB0330A43
+Abyss.esp,Abyssal Shadow Rune,0xFE97F82B,0xFE91482B
+Abyss.esp,Shadow Detonation,0xFE97FBFD,0xFE914BFD
+Abyss.esp,Abyssal Shadow Drain,0xFE97FC0C,0xFE914C0C
+MysticismMagic.esp,Burning Touch,0xAE1AE7FA,0xA91AE7FA
+Apocalypse - Magic of Skyrim.esp,Dragon's Teeth,0xAC02B548,0xA702B548
+Apocalypse - Magic of Skyrim.esp,Inferno,0xAC022DAB,0xA7022DAB
+SPERG-SSE.esp,Fire Rune,0xAF035517,0xAA035517
+MysticismMagic.esp,Greater Fire Rune,0xAE1FF868,0xA91FF868
+Apocalypse - Magic of Skyrim.esp,Pyroclasm,0xAC0BDFA7,0xA70BDFA7
+Apocalypse - Magic of Skyrim.esp,Electrosphere,0xAC001879,0xA7001879
+Apocalypse - Magic of Skyrim.esp,Scattershock,0xAC024E49,0xA7024E49
+Fanatical Enemies.esp,Great Thunder,0xC5E80038,0xC0E80038
+MysticismMagic.esp,Electrocute,0xAEA0782A,0xA9A0782A
+MysticismMagic.esp,Greater Flames,0xAE1D7023,0xA91D7023
+Apocalypse - Magic of Skyrim.esp,Frozen Orb,0xAC020A58,0xA7020A58
+Apocalypse - Magic of Skyrim.esp,Fingers of the Mountain,0xAC1124B1,0xA71124B1
+Apocalypse - Magic of Skyrim.esp,Incendiary Flow,0xAC0F2189,0xA70F2189
+Apocalypse - Magic of Skyrim.esp,Skull Trap,0xAC106B29,0xA7106B29
+MysticismMagic.esp,Immolate,0xAE1D7020,0xA91D7020
+Arclight.esp,Arclight Storm,0xFE97D8F2,0xFE9128F2
+Apocalypse - Magic of Skyrim.esp,Crackle,0xAC109653,0xA7109653
+Apocalypse - Magic of Skyrim.esp,Carbonize,0xAC0BB94E,0xA70BB94E
+Abyss.esp,Shadow Ambush,0xFE97FBA7,0xFE914BA7
+Abyss.esp,Shadow Aura,0xFE97FB1F,0xFE914B1F
+MysticismMagic.esp,Greater Sparks,0xAE1D702A,0xA91D702A
+Apocalypse - Magic of Skyrim.esp,Thundercrack,0xAC07C83B,0xA707C83B
+Triumvirate - Mage Archetypes.esp,Witch Bolt,0xB51AF89A,0xB01AF89A
+Desecration.esp,Necrotic Flame Touch,0xFE97E82F,0xFE91382F
+Desecration.esp,Necrotic Fire Bolt,0xFE97E9A4,0xFE9139A4
+Desecration.esp,Necrotic Burn Touch,0xFE97E828,0xFE913828
+Desecration.esp,Necrotic Flames,0xFE97E9A9,0xFE9139A9
+MysticismMagic.esp,Vampiric Blast,0xAE46E8A8,0xA946E8A8
+MysticismMagic.esp,Vampiric Grasp,0xAE2E8863,0xA92E8863
+MysticismMagic.esp,Vampiric Touch,0xAE1B8A10,0xA91B8A10
+MysticismMagic.esp,Shocking Touch,0xAE1AE801,0xA91AE801
+Arclight.esp,Arclight Sparks,0xFE97D82D,0xFE91282D
+Abyss.esp,Shadow Rune,0xFE97F82A,0xFE91482A
+Elemental Destruction Magic Redux.esp,Wall of Earth,0xFE97A934,0xFE90F934
+Elemental Destruction Magic Redux.esp,Earthquake,0xFE97A93B,0xFE90F93B
+Elemental Destruction Magic Redux.esp,Boulder,0xFE97A92F,0xFE90F92F
+MysticismMagic.esp,Scion's Embrace,0xAE445FA0,0xA9445FA0
+MysticismMagic.esp,Touch of Death,0xAEA0782D,0xA9A0782D
+Apocalypse - Magic of Skyrim.esp,Frost Nova,0xAC1347EE,0xA71347EE
+MysticismMagic.esp,Greater Frostbite,0xAE1D702B,0xA91D702B
+Fanatical Enemies.esp,Dire Incinerate,0xC5C9EFCA,0xC0C9EFCA
+Fanatical Enemies.esp,Empower,0xC58F2827,0xC08F2827
+MysticismMagic.esp,Siphon Spirit,0xAE445FA8,0xA9445FA8
+MysticismMagic.esp,Leech Magicka,0xAE440E96,0xA9440E96
+Fanatical Enemies.esp,Electrify,0xC5C716A8,0xC0C716A8
+MysticismMagic.esp,Chilling Touch,0xAE1AE800,0xA91AE800
+MysticismMagic.esp,Icy Touch,0xAECDB97D,0xA9CDB97D
+Vulcano.esp,Molten Ash,0xFE97C82D,0xFE91182D
+Apocalypse - Magic of Skyrim.esp,Unbound Fire,0xAC0B2C73,0xA70B2C73
+MysticismMagic.esp,Blood Lance,0xAE1B8A09,0xA91B8A09
+Apocalypse - Magic of Skyrim.esp,Hailstone,0xAC02E634,0xA702E634
+Apocalypse - Magic of Skyrim.esp,Fracture,0xAC142B7F,0xA7142B7F
+MysticismMagic.esp,Drain Life,0xAE445FB7,0xA9445FB7
+MysticismMagic.esp,Drain Magicka,0xAE445FC4,0xA9445FC4
+MysticismMagic.esp,Drain Stamina,0xAE2DE656,0xA92DE656
+MysticismMagic.esp,Vampiric Bolt,0xAE1B8A15,0xA91B8A15
+Triumvirate - Mage Archetypes.esp,Draining Touch,0xB52FDF7D,0xB02FDF7D
+Triumvirate - Mage Archetypes.esp,Solar Ray,0xB5205A8F,0xB0205A8F
+MysticismMagic.esp,Greater Frost Rune,0xAE2FCC83,0xA92FCC83
+Apocalypse - Magic of Skyrim.esp,Bombardment,0xAC0294D4,0xA70294D4
+Apocalypse - Magic of Skyrim.esp,Bolide,0xAC0294CD,0xA70294CD
+MysticismMagic.esp,Leech Stamina,0xAE2DE648,0xA92DE648
+MysticismMagic.esp,Sap Essence,0xAE445FB2,0xA9445FB2
+Arclight.esp,Arclight Chain,0xFE97D9E2,0xFE9129E2
+Arclight.esp,Arclight Wave,0xFE97D838,0xFE912838
+Arclight.esp,Arclight Aura,0xFE97D826,0xFE912826
+Arclight.esp,Arclight Contact,0xFE97D82B,0xFE91282B
+MysticismMagic.esp,Flame Touch,0xAEC43A35,0xA9C43A35
+Apocalypse - Magic of Skyrim.esp,Ride the Lightning,0xAC0B5D28,0xA70B5D28
+Apocalypse - Magic of Skyrim.esp,Scorching Hands,0xAC02388C,0xA702388C
+Apocalypse - Magic of Skyrim.esp,Forbidden Sun,0xAC08F31B,0xA708F31B
+Triumvirate - Mage Archetypes.esp,Consecrated Ground,0xB5205A93,0xB0205A93
+Arclight.esp,Arclight Touch,0xFE97D836,0xFE912836
+Arclight.esp,Arclight Rune,0xFE97D831,0xFE912831
+Arclight.esp,Arclight Bolt,0xFE97D829,0xFE912829
+Vulcano.esp,Molten Bolt,0xFE97C829,0xFE911829
+Triumvirate - Mage Archetypes.esp,Cloudkill,0xB51A0588,0xB01A0588
+MysticismMagic.esp,Scorch,0xAE7847E9,0xA97847E9
+MysticismMagic.esp,Fiery Grasp,0xAE1D702D,0xA91D702D
+Triumvirate - Mage Archetypes.esp,Hurl Into Oblivion,0xB51B49A7,0xB01B49A7
+Triumvirate - Mage Archetypes.esp,Eldritch Blast,0xB519B465,0xB019B465
+Abyss.esp,Shadow Torrent,0xFE97FC0B,0xFE914C0B
+MysticismMagic.esp,Leech Life,0xAE440E99,0xA9440E99
+Vulcano.esp,Molten Core,0xFE97C82C,0xFE91182C
+Vulcano.esp,Molten Eruption,0xFE97C99F,0xFE91199F
+Vulcano.esp,Molten Lava Detonation,0xFE97C835,0xFE911835
+Vulcano.esp,Molten Earth,0xFE97C82E,0xFE91182E
+Fanatical Enemies.esp,Dark Thunderblast,0xC54B59DF,0xC04B59DF
+Apocalypse - Magic of Skyrim.esp,Shock Nova,0xAC00186D,0xA700186D
+Desecration.esp,Necrotic Fire Rune,0xFE97E888,0xFE913888
+MysticismMagic.esp,Throat of the World,0xAE2E8870,0xA92E8870
+Triumvirate - Mage Archetypes.esp,Balefire,0xB51A0577,0xB01A0577
+Apocalypse - Magic of Skyrim.esp,Lightning Strike,0xAC002878,0xA7002878
+Triumvirate - Mage Archetypes.esp,Holy Shock,0xB5214DBC,0xB0214DBC
+Fanatical Enemies.esp,Thunderburst,0xC5C6C5A3,0xC0C6C5A3
+MysticismMagic.esp,Static Touch,0xAECF9FAB,0xA9CF9FAB
+MysticismMagic.esp,Stormblast,0xAE399C05,0xA9399C05
+Elemental Destruction Magic Redux.esp,Geyser,0xFE97A941,0xFE90F941
+Elemental Destruction Magic Redux.esp,Rain Cloak,0xFE97A923,0xFE90F923
+Elemental Destruction Magic Redux.esp,Water Rune,0xFE97A921,0xFE90F921
+Abyss.esp,Shadow Grasp,0xFE97FA8E,0xFE914A8E
+Desecration.esp,Necrotic Scorch,0xFE97E833,0xFE913833
+Desecration.esp,Necrotic Devastation,0xFE97E9A2,0xFE9139A2
+Desecration.esp,Necrotic Flame Tempest,0xFE97E9A7,0xFE9139A7
+Elemental Destruction Magic Redux.esp,Zephyr,0xFE97A945,0xFE90F945
+Elemental Destruction Magic Redux.esp,Wind Rune,0xFE97A930,0xFE90F930
+Elemental Destruction Magic Redux.esp,Gust,0xFE97A928,0xFE90F928
+Desecration.esp,Greater Necrotic Flames,0xFE97E9A8,0xFE9139A8
+Fanatical Enemies.esp,Frost Warding,0xC5CB33DB,0xC0CB33DB
+Apocalypse - Magic of Skyrim.esp,Howling Blast,0xAC08F319,0xA708F319
+Fanatical Enemies.esp,Frostbolt,0xC5E85147,0xC0E85147
+Fanatical Enemies.esp,Cryoblast,0xC5CB33E0,0xC0CB33E0
+Elemental Destruction Magic Redux.esp,Rapids,0xFE97A91F,0xFE90F91F
+Elemental Destruction Magic Redux.esp,Waterball,0xFE97A920,0xFE90F920
+Apocalypse - Magic of Skyrim.esp,Ice Shiv,0xAC024B44,0xA7024B44
+Apocalypse - Magic of Skyrim.esp,Rift Bolt,0xAC0253C2,0xA70253C2
+Apocalypse - Magic of Skyrim.esp,Creeping Cold,0xAC0279BD,0xA70279BD
+SPERG-SSE.esp,Frost Rune,0xAF034FA7,0xAA034FA7
+Apocalypse - Magic of Skyrim.esp,Cyclonic Rift,0xAC0B5D26,0xA70B5D26
+Arclight.esp,Arclight Grasp,0xFE97D82F,0xFE91282F
+Arclight.esp,Arclight Flash,0xFE97D833,0xFE912833
+Apocalypse - Magic of Skyrim.esp,Twister,0xAC02D5DB,0xA702D5DB
+Elemental Destruction Magic Redux.esp,Cyclone,0xFE97A939,0xFE90F939
+Elemental Destruction Magic Redux.esp,Wall of Wind,0xFE97A936,0xFE90F936
+Apocalypse - Magic of Skyrim.esp,Volcano,0xAC04733C,0xA704733C
+Desecration.esp,Necrotic Flame Cloak,0xFE97E9A6,0xFE9139A6
+MysticismMagic.esp,Hoarfrost,0xAE445FFD,0xA9445FFD
+Apocalypse - Magic of Skyrim.esp,Firebloom,0xAC1124B7,0xA71124B7
+Arclight.esp,Arclight Discharge,0xFE97D82C,0xFE91282C
+Arclight.esp,Arclight Palm,0xFE97D82A,0xFE91282A
+Abyss.esp,Abyssal Shadow Grasp,0xFE97FA8F,0xFE914A8F
+Abyss.esp,Shadow Void,0xFE97FBF3,0xFE914BF3
+Abyss.esp,Shadow Orb,0xFE97FB21,0xFE914B21
+MysticismMagic.esp,Finger of the Mountain,0xAECF4EA4,0xA9CF4EA4
+Triumvirate - Mage Archetypes.esp,Holy Fire,0xB5205A91,0xB0205A91
+MysticismMagic.esp,Vampiric Rune,0xAE2DE640,0xA92DE640
+Triumvirate - Mage Archetypes.esp,Draining Mist,0xB5330A2E,0xB0330A2E
+Abyss.esp,Shadow Eruption,0xFE97F974,0xFE914974
+MysticismMagic.esp,Flame Tempest,0xAE445FD0,0xA9445FD0
+Fanatical Enemies.esp,Dragon Breath,0xC5C9EFCE,0xC0C9EFCE
+Elemental Destruction Magic Redux.esp,Stalagmite,0xFE97AD65,0xFE90FD65
+Elemental Destruction Magic Redux.esp,Rock Cloak,0xFE97A92C,0xFE90F92C
+Elemental Destruction Magic Redux.esp,Earth Rune,0xFE97A92E,0xFE90F92E
+Elemental Destruction Magic Redux.esp,Torrent,0xFE97A924,0xFE90F924
+Elemental Destruction Magic Redux.esp,Wall of Water,0xFE97A926,0xFE90F926
+Elemental Destruction Magic Redux.esp,Tidal Wave,0xFE97A925,0xFE90F925
+Vulcano.esp,Molten Rune,0xFE97C831,0xFE911831
+Vulcano.esp,Molten Aura,0xFE97C826,0xFE911826
+Vulcano.esp,Molten Touch,0xFE97C836,0xFE911836
+Elemental Destruction Magic Redux.esp,Gravel,0xFE97A92B,0xFE90F92B
+Elemental Destruction Magic Redux.esp,Rock Blast,0xFE97A92D,0xFE90F92D
+Vulcano.esp,Molten Fragment,0xFE97C833,0xFE911833
+Vulcano.esp,Molten Grasp,0xFE97C82F,0xFE91182F
+Vulcano.esp,Molten Blade,0xFE97C838,0xFE911838
+Vulcano.esp,Molten Lava,0xFE97C834,0xFE911834
+Vulcano.esp,Molten Contact,0xFE97C82B,0xFE91182B
+Elemental Destruction Magic Redux.esp,Tornado,0xFE97A931,0xFE90F931
+Vulcano.esp,Molten Skoria,0xFE97C9AD,0xFE9119AD
+Vulcano.esp,Molten Wall,0xFE97C837,0xFE911837
+Elemental Destruction Magic Redux.esp,Whirlwind Cloak,0xFE97A932,0xFE90F932
+Elemental Destruction Magic Redux.esp,Tempest,0xFE97A938,0xFE90F938
+Desecration.esp,Necrotic Fire Storm,0xFE97E9A5,0xFE9139A5
+Abyss.esp,Shadow Bolt,0xFE97FB1C,0xFE914B1C
+Triumvirate - Mage Archetypes.esp,Storm of Vengeance,0xB521EFFA,0xB021EFFA
+Vulcano.esp,Molten Palm,0xFE97C82A,0xFE91182A
+Vulcano.esp,Molten Ray,0xFE97C8F2,0xFE9118F2
+Vulcano.esp,Molten Lava Rune,0xFE97C832,0xFE911832
+Arclight.esp,Arclight Detonation,0xFE97D835,0xFE912835
+Arclight.esp,Arclight Charged Rune,0xFE97D832,0xFE912832
+Arclight.esp,Arclight Wall,0xFE97D837,0xFE912837
+Desecration.esp,Necrotic Fire Ball,0xFE97E9A3,0xFE9139A3
+Desecration.esp,Necrotic Fire Grasp,0xFE97E835,0xFE913835
+Desecration.esp,Wall of Necrotic Flames,0xFE97E821,0xFE913821
+Desecration.esp,Necrotic Combustion,0xFE97E9A1,0xFE9139A1
+Fanatical Enemies.esp,Fire Warding,0xC50CB76B,0xC00CB76B
+Desecration.esp,Greater Necrotic Fire Rune,0xFE97E88B,0xFE91388B
+Abyss.esp,Shadow Burst,0xFE97FB1E,0xFE914B1E
+Abyss.esp,Shadow Eye,0xFE97F860,0xFE914860
+Abyss.esp,Shadow Wall,0xFE97FBE4,0xFE914BE4
+Fanatical Enemies.esp,Summon Fiery Orb,0xC5E80041,0xC0E80041
+MysticismMagic.esp,Hush,0xAE4AB524,0xA94AB524
+Triumvirate - Mage Archetypes.esp,Exile,0xB51CDEED,0xB01CDEED
+Apocalypse - Magic of Skyrim.esp,Evil Twin,0xAC037332,0xA7037332
+Apocalypse - Magic of Skyrim.esp,Figment of Pain,0xAC043CE1,0xA7043CE1
+MysticismMagic.esp,Shroud,0xAE2A6AC8,0xA92A6AC8
+Apocalypse - Magic of Skyrim.esp,Pull From Eternity,0xAC085B03,0xA7085B03
+Apocalypse - Magic of Skyrim.esp,Mirror Entity,0xAC037E1A,0xA7037E1A
+Apocalypse - Magic of Skyrim.esp,Spectral Warband,0xAC085579,0xA7085579
+MysticismMagic.esp,Sanctuary,0xAE2A6AC9,0xA92A6AC9
+Apocalypse - Magic of Skyrim.esp,Seidstone,0xAC109839,0xA7109839
+MysticismMagic.esp,Quietude,0xAE2B0CE9,0xA92B0CE9
+Triumvirate - Mage Archetypes.esp,Suggestion,0xB51D3000,0xB01D3000
+Triumvirate - Mage Archetypes.esp,Gather Shadows,0xB53727BF,0xB03727BF
+Apocalypse - Magic of Skyrim.esp,Compelling Whispers,0xAC05865B,0xA705865B
+Triumvirate - Mage Archetypes.esp,Darkness,0xB53727C3,0xB03727C3
+Abyss.esp,Shadow Chains,0xFE97FB22,0xFE914B22
+MysticismMagic.esp,Fade,0xAEA9A573,0xA9A9A573
+Apocalypse - Magic of Skyrim.esp,Death March,0xAC096A0F,0xA7096A0F
+Apocalypse - Magic of Skyrim.esp,Geas Rune,0xAC129554,0xA7129554
+Triumvirate - Mage Archetypes.esp,Life Tap,0xB5224108,0xB0224108
+Triumvirate - Mage Archetypes.esp,Possession,0xB53F637F,0xB03F637F
+Abyss.esp,Shadow Soul,0xFE97FACD,0xFE914ACD
+Apocalypse - Magic of Skyrim.esp,Shroudwalk,0xAC0DD94B,0xA70DD94B
+Apocalypse - Magic of Skyrim.esp,Mind Vision,0xAC0378A9,0xA70378A9
+Apocalypse - Magic of Skyrim.esp,Deliver Unto Vaermina,0xAC0BB953,0xA70BB953
+Apocalypse - Magic of Skyrim.esp,Pale Shadow,0xAC08558A,0xA708558A
+MysticismMagic.esp,Fear Rune,0xAE3E5BEE,0xA93E5BEE
+MysticismMagic.esp,Hypnotize,0xAE4B063B,0xA94B063B
+Apocalypse - Magic of Skyrim.esp,Mimic's Cloak,0xAC1274CF,0xA71274CF
+MysticismMagic.esp,Silence Rune,0xAE3E5BD3,0xA93E5BD3
+MysticismMagic.esp,Paralyze Rune,0xAE2CF335,0xA92CF335
+MysticismMagic.esp,Panic,0xAE4AB528,0xA94AB528
+MysticismMagic.esp,Fury,0xAEB4B8F4,0xA9B4B8F4
+MysticismMagic.esp,Domination,0xAE2CA219,0xA92CA219
+MysticismMagic.esp,Calm Rune,0xAE3E0AC5,0xA93E0AC5
+Fanatical Enemies.esp,Mind Sear,0xC54BFBF0,0xC04BFBF0
+MysticismMagic.esp,Soothe,0xAE4B063A,0xA94B063A
+Apocalypse - Magic of Skyrim.esp,Dispel Magic,0xAC00BB25,0xA700BB25
+Apocalypse - Magic of Skyrim.esp,Last Word,0xAC0416BF,0xA70416BF
+MysticismMagic.esp,Mute,0xAE2B5DFA,0xA92B5DFA
+MysticismMagic.esp,Vanish,0xAE705EAF,0xA9705EAF
+Apocalypse - Magic of Skyrim.esp,Hidden Cobra,0xAC046DC4,0xA7046DC4
+Triumvirate - Mage Archetypes.esp,Decrepify,0xB5224113,0xB0224113
+Apocalypse - Magic of Skyrim.esp,Scream of Pain,0xAC0321BA,0xA70321BA
+Apocalypse - Magic of Skyrim.esp,Wyrd,0xAC096A16,0xA7096A16
+Triumvirate - Mage Archetypes.esp,Weaken,0xB522411C,0xB022411C
+Apocalypse - Magic of Skyrim.esp,Mind Control,0xAC0378AE,0xA70378AE
+MysticismMagic.esp,Wrath,0xAE4AB52F,0xA94AB52F
+Triumvirate - Mage Archetypes.esp,Obedience,0xB51D8106,0xB01D8106
+Apocalypse - Magic of Skyrim.esp,Magicka Void,0xAC00B5B7,0xA700B5B7
+Triumvirate - Mage Archetypes.esp,Reveal Secrets,0xB53727C1,0xB03727C1
+Abyss.esp,Shadow Mark,0xFE97FBAC,0xFE914BAC
+Triumvirate - Mage Archetypes.esp,Nightfall,0xB531C5B8,0xB031C5B8
+Abyss.esp,Abyssal Shadow Step,0xFE97FB89,0xFE914B89
+Apocalypse - Magic of Skyrim.esp,Thoughtsteal,0xAC00BB22,0xA700BB22
+Apocalypse - Magic of Skyrim.esp,Illusory Flames,0xAC03682F,0xA703682F
+Apocalypse - Magic of Skyrim.esp,Shared Trauma,0xAC00C0AC,0xA700C0AC
+MysticismMagic.esp,Silence,0xAEB467E6,0xA9B467E6
+Abyss.esp,Shadow Regeneration,0xFE97FAC1,0xFE914AC1
+MysticismMagic.esp,Invisibility,0xAEC4DC3A,0xA9C4DC3A
+Apocalypse - Magic of Skyrim.esp,Shadowbond,0xAC055B32,0xA7055B32
+Apocalypse - Magic of Skyrim.esp,Harrowing Dirge,0xAC0C74EA,0xA70C74EA
+Apocalypse - Magic of Skyrim.esp,Curse of the Silent,0xAC017509,0xA7017509
+Apocalypse - Magic of Skyrim.esp,Backlash,0xAC1132DA,0xA71132DA
+Apocalypse - Magic of Skyrim.esp,Enslave the Weak,0xAC0306AC,0xA70306AC
+MysticismMagic.esp,Command Rune,0xAE3E5BE1,0xA93E5BE1
+Abyss.esp,Shadow Step,0xFE97FB88,0xFE914B88
+Abyss.esp,Shadow Bane,0xFE97FB25,0xFE914B25
+Apocalypse - Magic of Skyrim.esp,Illusory Pyre,0xAC032C8B,0xA7032C8B
+Triumvirate - Mage Archetypes.esp,Iron Maiden,0xB5224110,0xB0224110
+Triumvirate - Mage Archetypes.esp,Frailty,0xB5224119,0xB0224119
+MysticismMagic.esp,Command,0xAE2B0CEE,0xA92B0CEE
+Apocalypse - Magic of Skyrim.esp,Empathic Agony,0xAC0A4EF7,0xA70A4EF7
+Apocalypse - Magic of Skyrim.esp,Vanish,0xAC037E24,0xA7037E24
+Apocalypse - Magic of Skyrim.esp,Ghostwalk,0xAC00AAE8,0xA700AAE8
+Apocalypse - Magic of Skyrim.esp,Blood for Blood,0xAC127FA7,0xA7127FA7
+MysticismMagic.esp,Control,0xAE2CA217,0xA92CA217
+Triumvirate - Mage Archetypes.esp,Spirit Guardian,0xB51D2FF0,0xB01D2FF0
+Abyss.esp,Shadow Mantle,0xFE97FABC,0xFE914ABC
+Triumvirate - Mage Archetypes.esp,Exodus,0xB51DD20C,0xB01DD20C
+MysticismMagic.esp,Immobilize,0xAE176CD0,0xA9176CD0
+MysticismMagic.esp,Chameleon,0xAE2CA222,0xA92CA222
+Abyss.esp,Shadow Enfeeblement,0xFE97FB23,0xFE914B23
+MysticismMagic.esp,Ghostwalk,0xAE2CA226,0xA92CA226
+Abyss.esp,Shadow Grave,0xFE97FB24,0xFE914B24
+MysticismMagic.esp,Eclipse,0xAE48CF09,0xA948CF09
+MysticismMagic.esp,Radiant Sunlight Rune,0xAE9AC5CE,0xA99AC5CE
+MysticismMagic.esp,Daybreak,0xAEB4B902,0xA9B4B902
+Apocalypse - Magic of Skyrim.esp,Bone Spirit,0xAC03527C,0xA703527C
+DawnguardArsenal.esp,Sun Ray,0x8E019434,0x89019434
+MysticismMagic.esp,Poison Cloud,0xAE1E6352,0xA91E6352
+MysticismMagic.esp,Venomous Touch,0xAED278E3,0xA9D278E3
+Fanatical Enemies.esp,Divine Judgement,0xC5DC4A7F,0xC0DC4A7F
+MysticismMagic.esp,Charged Nova,0xAE25FBFF,0xA925FBFF
+Triumvirate - Mage Archetypes.esp,Aura of Thorns,0xB51E742B,0xB01E742B
+Fanatical Enemies.esp,Healing Spark,0xC58F281E,0xC08F281E
+MysticismMagic.esp,Rapid Regeneration,0xAE9A74C9,0xA99A74C9
+Triumvirate - Mage Archetypes.esp,Aura of Vigor,0xB51E7429,0xB01E7429
+MysticismMagic.esp,Close Wounds,0xAE515B97,0xA9515B97
+MysticismMagic.esp,Regeneration,0xAE2559DE,0xA92559DE
+Apocalypse - Magic of Skyrim.esp,Wild Healing,0xAC086056,0xA7086056
+DawnguardArsenal.esp,Holy Ground,0x8E0610C8,0x890610C8
+MysticismMagic.esp,Searing Grasp,0xAE2280B0,0xA92280B0
+MysticismMagic.esp,Mara's Embrace,0xAE7D5826,0xA97D5826
+Apocalypse - Magic of Skyrim.esp,Resurgence,0xAC01E701,0xA701E701
+MysticismMagic.esp,Close Greater Wounds,0xAE27E242,0xA927E242
+Fanatical Enemies.esp,Bloom,0xC5ED6CF3,0xC0ED6CF3
+Apocalypse - Magic of Skyrim.esp,Healing Blossom,0xAC05F74D,0xA705F74D
+SPERG-SSE.esp,Lesser Ward,0xAF04A010,0xAA04A010
+SPERG-SSE.esp,Steadfast Ward,0xAF04A00F,0xAA04A00F
+Apocalypse - Magic of Skyrim.esp,Ruin,0xAC0159D8,0xA70159D8
+Triumvirate - Mage Archetypes.esp,Spirit Storm,0xB53B9685,0xB03B9685
+Apocalypse - Magic of Skyrim.esp,Withershins,0xAC0BB95A,0xA70BB95A
+Fanatical Enemies.esp,Greater Bloom,0xC5EDBE02,0xC0EDBE02
+MysticismMagic.esp,Miasma,0xAE9606AC,0xA99606AC
+Triumvirate - Mage Archetypes.esp,Bramble Growth,0xB527F3B4,0xB027F3B4
+MysticismMagic.esp,Viper's Grasp,0xAE209A76,0xA9209A76
+MysticismMagic.esp,Sunbeam,0xAE7388D3,0xA97388D3
+Apocalypse - Magic of Skyrim.esp,Channel Energies,0xAC01FCCE,0xA701FCCE
+Apocalypse - Magic of Skyrim.esp,Nature's Balance,0xAC0012DC,0xA70012DC
+Apocalypse - Magic of Skyrim.esp,Biorhythm,0xAC0BB960,0xA70BB960
+MysticismMagic.esp,Cure Disease,0xAE283346,0xA9283346
+MysticismMagic.esp,Sunlight Rune,0xAE890D64,0xA9890D64
+MysticismMagic.esp,Sunlight Touch,0xAE20496A,0xA920496A
+MysticismMagic.esp,Viperbolt,0xAE1E634F,0xA91E634F
+MysticismMagic.esp,Wall of Poison,0xAE96F9BA,0xA996F9BA
+MysticismMagic.esp,Grand Ward,0xAE283349,0xA9283349
+Apocalypse - Magic of Skyrim.esp,Decompose,0xAC01F1FB,0xA701F1FB
+Triumvirate - Mage Archetypes.esp,Shield of Awe,0xB53AF461,0xB03AF461
+Apocalypse - Magic of Skyrim.esp,Devastate,0xAC095F40,0xA7095F40
+Triumvirate - Mage Archetypes.esp,Spirit of the Oak,0xB527F3B0,0xB027F3B0
+Apocalypse - Magic of Skyrim.esp,Horrid Wilting,0xAC012214,0xA7012214
+Apocalypse - Magic of Skyrim.esp,Finger of Death,0xAC035452,0xA7035452
+Apocalypse - Magic of Skyrim.esp,Lamb of Mara,0xAC036A03,0xA7036A03
+Apocalypse - Magic of Skyrim.esp,Necroplague,0xAC034D12,0xA7034D12
+Triumvirate - Mage Archetypes.esp,Spirit Fire,0xB53A0125,0xB03A0125
+Apocalypse - Magic of Skyrim.esp,Welling Blood,0xAC01FCD9,0xA701FCD9
+Apocalypse - Magic of Skyrim.esp,Hemorrhage,0xAC0BFABE,0xA70BFABE
+MysticismMagic.esp,Mutagen,0xAE2559DF,0xA92559DF
+MysticismMagic.esp,Radiant Sunbeam,0xAE78E9F4,0xA978E9F4
+Apocalypse - Magic of Skyrim.esp,Circle of Strength,0xAC036A05,0xA7036A05
+Apocalypse - Magic of Skyrim.esp,Mystic Wind,0xAC0E8B77,0xA70E8B77
+Fanatical Enemies.esp,Blight Healing,0xC5915F43,0xC0915F43
+Fanatical Enemies.esp,Healing Prayer,0xC5E0B8D3,0xC0E0B8D3
+MysticismMagic.esp,Grand Healing,0xAE27E243,0xA927E243
+Apocalypse - Magic of Skyrim.esp,Leech Seed,0xAC13E4FD,0xA713E4FD
+DawnguardArsenal.esp,Meridian Rune,0x8E00081D,0x8900081D
+Apocalypse - Magic of Skyrim.esp,Tree Rings,0xAC13DA15,0xA713DA15
+Apocalypse - Magic of Skyrim.esp,Hallowed Weapon,0xAC0BAE7D,0xA70BAE7D
+MysticismMagic.esp,Circle of Strength,0xAEF21F4A,0xA9F21F4A
+Apocalypse - Magic of Skyrim.esp,Circle of the Moons,0xAC1238E4,0xA71238E4
+MysticismMagic.esp,Circle of Wisdom,0xAE48CEFA,0xA948CEFA
+MysticismMagic.esp,Poisonbolt,0xAED6E7AF,0xA9D6E7AF
+MysticismMagic.esp,Augur of Aetherius,0xAE274025,0xA9274025
+Apocalypse - Magic of Skyrim.esp,Godform,0xAC086B2E,0xA7086B2E
+Apocalypse - Magic of Skyrim.esp,Valkyrie's Embrace,0xAC0A1D9E,0xA70A1D9E
+Apocalypse - Magic of Skyrim.esp,Circle of Glory,0xAC0BB95D,0xA70BB95D
+Apocalypse - Magic of Skyrim.esp,King's Heart,0xAC033CCA,0xA7033CCA
+Apocalypse - Magic of Skyrim.esp,Breath of Arkay,0xAC12B063,0xA712B063
+Fanatical Enemies.esp,Intervention,0xC5DC4A83,0xC0DC4A83
+Apocalypse - Magic of Skyrim.esp,Infinite Light,0xAC02F66E,0xA702F66E
+MysticismMagic.esp,Deadly Poison Spray,0xAE9420A3,0xA99420A3
+MysticismMagic.esp,Poisonous Touch,0xAE209A74,0xA9209A74
+MysticismMagic.esp,Poison Spray,0xAE8C886D,0xA98C886D
+MysticismMagic.esp,Circle of Life,0xAEF3637F,0xA9F3637F
+MysticismMagic.esp,Poison Cloak,0xAE209A73,0xA9209A73
+MysticismMagic.esp,Wall of Sunlight,0xAE9C09E5,0xA99C09E5
+MysticismMagic.esp,Reflective Light,0xAE2508C9,0xA92508C9
+Fanatical Enemies.esp,Salvation,0xC5F2C2EB,0xC0F2C2EB
+MysticismMagic.esp,Radiant Touch,0xAED45F28,0xA9D45F28
+Cutting Room Floor.esp,Circle of Vitality,0x3F02CBE5,0x4002CBE5
+MysticismMagic.esp,Font of Life,0xAEF3B48D,0xA9F3B48D
+MysticismMagic.esp,Stendarr's Mercy,0xAE482CE4,0xA9482CE4
+DawnguardArsenal.esp,Gaze of Arkay,0x8E02D110,0x8902D110
+Apocalypse - Magic of Skyrim.esp,Dust To Dust,0xAC11122C,0xA711122C
+Apocalypse - Magic of Skyrim.esp,Sealed Resolve,0xAC01FCCA,0xA701FCCA
+Apocalypse - Magic of Skyrim.esp,Slay Living,0xAC003E0F,0xA7003E0F
+Triumvirate - Mage Archetypes.esp,Visions of Opportunity,0xB5363496,0xB0363496
+Triumvirate - Mage Archetypes.esp,Spirit of Thornbriar,0xB52844CD,0xB02844CD
+MysticismMagic.esp,Spelldrinker,0xAE3DB99C,0xA93DB99C
+Triumvirate - Mage Archetypes.esp,Mass Immortality,0xB51EC531,0xB01EC531
+Apocalypse - Magic of Skyrim.esp,Meridia's Wrath,0xAC0362C7,0xA70362C7
+Apocalypse - Magic of Skyrim.esp,Blood Boil,0xAC0BFAB2,0xA70BFAB2
+Apocalypse - Magic of Skyrim.esp,Heart of Thorns,0xAC0BFABC,0xA70BFABC
+Apocalypse - Magic of Skyrim.esp,Bloodseeker,0xAC048398,0xA7048398
+Apocalypse - Magic of Skyrim.esp,Resurrection,0xAC06C9DA,0xA706C9DA
+Apocalypse - Magic of Skyrim.esp,Worm Shroud,0xAC12CB8D,0xA712CB8D
+MysticismMagic.esp,Solar Flare,0xAE2466C0,0xA92466C0
+Apocalypse - Magic of Skyrim.esp,Life's Finale,0xAC083FA8,0xA7083FA8
+MysticismMagic.esp,Font of Strength,0xAEF3635D,0xA9F3635D
+MysticismMagic.esp,Font of Wisdom,0xAEF3636B,0xA9F3636B
+Apocalypse - Magic of Skyrim.esp,Bone Storm,0xAC0B8DCF,0xA70B8DCF
+Apocalypse - Magic of Skyrim.esp,Culling Rune,0xAC0B9344,0xA70B9344
+MysticismMagic.esp,Death Cloud,0xAE1FA75F,0xA91FA75F
+Apocalypse - Magic of Skyrim.esp,Defy Death,0xAC0BA90B,0xA70BA90B
+Triumvirate - Mage Archetypes.esp,Visions of Healing,0xB53AF459,0xB03AF459
+Fanatical Enemies.esp,Bark,0xC5EDBDFA,0xC0EDBDFA
+Triumvirate - Mage Archetypes.esp,Aura of Might,0xB51E7427,0xB01E7427
+Triumvirate - Mage Archetypes.esp,Aid,0xB51EC53D,0xB01EC53D
+MysticismMagic.esp,Attunement,0xAE274020,0xA9274020
+MysticismMagic.esp,Arkay's Light,0xAE9A74CB,0xA99A74CB
+Triumvirate - Mage Archetypes.esp,Spirit of the Sun,0xB527F3B6,0xB027F3B6
+Triumvirate - Mage Archetypes.esp,Parasitic Growth,0xB527F3B2,0xB027F3B2
+Apocalypse - Magic of Skyrim.esp,Circle of Death,0xAC01220F,0xA701220F
+MysticismMagic.esp,Deadly Poison Rune,0xAE209A7A,0xA9209A7A
+Fanatical Enemies.esp,Impenetrable Ward,0xC5DF23B1,0xC0DF23B1
+SPERG-SSE.esp,Greater Ward,0xAF047A03,0xAA047A03
+MysticismMagic.esp,Black Marsh,0xAE2ED973,0xA92ED973
+MysticismMagic.esp,Venomfang,0xAE48CF04,0xA948CF04
+Fanatical Enemies.esp,Corrosive Blood Plague,0xC5E8A279,0xC0E8A279
