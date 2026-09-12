@@ -1,5 +1,5 @@
 {
-  "llmPrompt": "## TREE CREATION RULES\n\nYou are a Skyrim spell tree architect. Create a logical learning progression tree for each school of magic.\n\n## CRITICAL RULES (MUST FOLLOW)\n\n### 1. SCHOOL SEPARATION (MOST IMPORTANT!)\n- **NEVER mix spells between schools!**\n- Each spell has a \"school\" field - ONLY place spells in their OWN school's tree\n- Example: Clairvoyance has \"school\": \"Illusion\" → it goes in Illusion tree, NOT Alteration\n- VALIDATE every spell belongs to the correct school before adding\n\n### 2. INCLUDE ALL SPELLS\n- Every spell from the input MUST appear in the output\n- Count spells per school and verify your output matches\n\n### 3. MAXIMUM 3 BRANCHES PER NODE\n- Each spell can have AT MOST 3 children\n- If more connections needed, create intermediate nodes or chains\n- This keeps the tree visually clean and navigable\n\n### 4. SAME-TIER BRANCHING ALLOWED\n- Novice spells CAN branch to other Novice spells\n- Progression does NOT require increasing skill level\n- Group by THEME/EFFECT, not just skill tier\n- Example: Flames (Novice) → Frostbite (Novice) → Sparks (Novice) is VALID if thematically grouped\n\n### 5. PREFER VANILLA FORMIDS FOR ROOTS\n- FormIDs starting with 0x00 are vanilla (preferred for roots)\n- 0x02 = Dawnguard, 0x04 = Dragonborn, 0xFE+ = mods\n- Recommended vanilla roots:\n  - Destruction: Flames (0x00012FCD)\n  - Restoration: Healing (0x00012FCC)\n  - Alteration: Oakflesh (0x0005AD5C) or Candlelight (0x00043324)\n  - Conjuration: Conjure Familiar (0x000640B6)\n  - Illusion: Clairvoyance (0x00021143) or Courage (0x0004DEE8)\n\n## Tree Structure Rules\n\n1. **One Root Per School**: Each school has exactly ONE root spell - a Novice-level spell FROM THAT SCHOOL.\n\n2. **Branching Logic** (max 3 children per node):\n   - Destruction: Branch by element (Fire, Frost, Shock)\n   - Conjuration: Branch by summon type (Atronachs, Undead, Daedra) and bound weapons\n   - Illusion: Branch by effect type (Fear, Calm, Frenzy, Invisibility, Muffle)\n   - Alteration: Branch by effect (Armor, Paralysis, Light, Transmute, Detect)\n   - Restoration: Branch by effect (Healing, Turn Undead, Wards)\n\n3. **Tier Progression**: \n   - Branching within same tier is encouraged (Novice→Novice for variety)\n   - Higher tier spells should generally require SOME lower tier prereqs\n   - Master spells need Expert prereqs, Expert needs Adept, etc.\n\n4. **Prerequisites**: Only from same school, thematically sensible.\n\n## BEFORE OUTPUT - VALIDATE:\n- [ ] Every node's school matches the tree it's in\n- [ ] All input spells appear in output\n- [ ] Each school has exactly one root\n- [ ] No node has more than 3 children\n- [ ] No duplicate formIds across trees\n\n## Custom Rules (add your own below)\n\n- \n\n\n\n## OUTPUT FORMAT REQUIREMENTS (CRITICAL - Follow exactly)\n\nYou MUST return ONLY valid JSON matching this exact schema. No explanations, no markdown code blocks, just raw JSON.\n\n{\n  \"version\": \"1.0\",\n  \"schools\": {\n    \"Alteration\": {\n      \"root\": \"0xFORMID_OF_ROOT_SPELL\",\n      \"nodes\": [\n        {\n          \"formId\": \"0xFORMID\",\n          \"children\": [\"0xCHILD_FORMID_1\", \"0xCHILD_FORMID_2\"],\n          \"prerequisites\": [\"0xPREREQ_FORMID\"],\n          \"tier\": 1\n        }\n      ]\n    },\n    \"Conjuration\": { ... },\n    \"Destruction\": { ... },\n    \"Illusion\": { ... },\n    \"Restoration\": { ... }\n  }\n}\n\n### Field Requirements:\n- **formId**: The hex FormID from the spell data (e.g., \"0x00012FCD\"). MUST match exactly.\n- **children**: Array of formIds that this spell unlocks. Empty array [] if none.\n- **prerequisites**: Array of formIds required before learning. Empty array [] for root spells.\n- **tier**: Integer depth in tree. Root = 1, children of root = 2, etc.\n- **root**: The formId of the single root spell for each school.\n\n### Critical Rules:\n1. Use ONLY formIds in the output - names/descriptions are NOT needed (retrieved in-game)\n2. Every spell from the input MUST appear exactly once in the output\n3. Each school has exactly ONE root spell (prerequisites = [])\n4. FormIds must be EXACT matches from the spell data - no modifications\n5. Return raw JSON only - no markdown, no explanations, no code fences\n\n## SPELL DATA:\n",
+  "llmPrompt": "## TREE CREATION RULES\n\nYou are a Skyrim spell tree architect. Create a logical learning progression tree for each school of magic.\n\n## CRITICAL RULES (MUST FOLLOW)\n\n### 1. SCHOOL SEPARATION (MOST IMPORTANT!)\n- **NEVER mix spells between schools!**\n- Each spell has a \"school\" field - ONLY place spells in their OWN school's tree\n- Example: Clairvoyance has \"school\": \"Illusion\" \u2192 it goes in Illusion tree, NOT Alteration\n- VALIDATE every spell belongs to the correct school before adding\n\n### 2. INCLUDE ALL SPELLS\n- Every spell from the input MUST appear in the output\n- Count spells per school and verify your output matches\n\n### 3. MAXIMUM 3 BRANCHES PER NODE\n- Each spell can have AT MOST 3 children\n- If more connections needed, create intermediate nodes or chains\n- This keeps the tree visually clean and navigable\n\n### 4. SAME-TIER BRANCHING ALLOWED\n- Novice spells CAN branch to other Novice spells\n- Progression does NOT require increasing skill level\n- Group by THEME/EFFECT, not just skill tier\n- Example: Flames (Novice) \u2192 Frostbite (Novice) \u2192 Sparks (Novice) is VALID if thematically grouped\n\n### 5. PREFER VANILLA FORMIDS FOR ROOTS\n- FormIDs starting with 0x00 are vanilla (preferred for roots)\n- 0x02 = Dawnguard, 0x04 = Dragonborn, 0xFE+ = mods\n- Recommended vanilla roots:\n  - Destruction: Flames (0x00012FCD)\n  - Restoration: Healing (0x00012FCC)\n  - Alteration: Oakflesh (0x0005AD5C) or Candlelight (0x00043324)\n  - Conjuration: Conjure Familiar (0x000640B6)\n  - Illusion: Clairvoyance (0x00021143) or Courage (0x0004DEE8)\n\n## Tree Structure Rules\n\n1. **One Root Per School**: Each school has exactly ONE root spell - a Novice-level spell FROM THAT SCHOOL.\n\n2. **Branching Logic** (max 3 children per node):\n   - Destruction: Branch by element (Fire, Frost, Shock)\n   - Conjuration: Branch by summon type (Atronachs, Undead, Daedra) and bound weapons\n   - Illusion: Branch by effect type (Fear, Calm, Frenzy, Invisibility, Muffle)\n   - Alteration: Branch by effect (Armor, Paralysis, Light, Transmute, Detect)\n   - Restoration: Branch by effect (Healing, Turn Undead, Wards)\n\n3. **Tier Progression**: \n   - Branching within same tier is encouraged (Novice\u2192Novice for variety)\n   - Higher tier spells should generally require SOME lower tier prereqs\n   - Master spells need Expert prereqs, Expert needs Adept, etc.\n\n4. **Prerequisites**: Only from same school, thematically sensible.\n\n## BEFORE OUTPUT - VALIDATE:\n- [ ] Every node's school matches the tree it's in\n- [ ] All input spells appear in output\n- [ ] Each school has exactly one root\n- [ ] No node has more than 3 children\n- [ ] No duplicate formIds across trees\n\n## Custom Rules (add your own below)\n\n- \n\n\n\n## OUTPUT FORMAT REQUIREMENTS (CRITICAL - Follow exactly)\n\nYou MUST return ONLY valid JSON matching this exact schema. No explanations, no markdown code blocks, just raw JSON.\n\n{\n  \"version\": \"1.0\",\n  \"schools\": {\n    \"Alteration\": {\n      \"root\": \"0xFORMID_OF_ROOT_SPELL\",\n      \"nodes\": [\n        {\n          \"formId\": \"0xFORMID\",\n          \"children\": [\"0xCHILD_FORMID_1\", \"0xCHILD_FORMID_2\"],\n          \"prerequisites\": [\"0xPREREQ_FORMID\"],\n          \"tier\": 1\n        }\n      ]\n    },\n    \"Conjuration\": { ... },\n    \"Destruction\": { ... },\n    \"Illusion\": { ... },\n    \"Restoration\": { ... }\n  }\n}\n\n### Field Requirements:\n- **formId**: The hex FormID from the spell data (e.g., \"0x00012FCD\"). MUST match exactly.\n- **children**: Array of formIds that this spell unlocks. Empty array [] if none.\n- **prerequisites**: Array of formIds required before learning. Empty array [] for root spells.\n- **tier**: Integer depth in tree. Root = 1, children of root = 2, etc.\n- **root**: The formId of the single root spell for each school.\n\n### Critical Rules:\n1. Use ONLY formIds in the output - names/descriptions are NOT needed (retrieved in-game)\n2. Every spell from the input MUST appear exactly once in the output\n3. Each school has exactly ONE root spell (prerequisites = [])\n4. FormIds must be EXACT matches from the spell data - no modifications\n5. Return raw JSON only - no markdown, no explanations, no code fences\n\n## SPELL DATA:\n",
   "scanTimestamp": "2026-06-15T09:52:07Z",
   "spellCount": 3726,
   "spells": [
@@ -42022,7 +42022,7 @@
           "name": "Heel Refresh Effect"
         }
       ],
-      "formId": "0xFE18680D",
+      "formId": "0xFE18580D",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -42760,7 +42760,7 @@
           "name": "Master of the Mind"
         }
       ],
-      "formId": "0xFE1EE807",
+      "formId": "0xFE1ED807",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -42823,7 +42823,7 @@
           "name": ""
         }
       ],
-      "formId": "0xFE1EE818",
+      "formId": "0xFE1ED818",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -42854,7 +42854,7 @@
           "name": "Calm"
         }
       ],
-      "formId": "0xFE1EE81C",
+      "formId": "0xFE1ED81C",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -42909,7 +42909,7 @@
           "name": "Slash FX Red"
         }
       ],
-      "formId": "0xFE1EE81F",
+      "formId": "0xFE1ED81F",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -42934,7 +42934,7 @@
           "name": "Guardian Circle"
         }
       ],
-      "formId": "0xFE28980E",
+      "formId": "0xFE28880E",
       "keywords": [
         "OCF_EquipTypeBothHands",
         "OCF_MgefClassHoly",
@@ -42961,7 +42961,7 @@
           "name": "Spell for Scene"
         }
       ],
-      "formId": "0xFE2A3833",
+      "formId": "0xFE2A2833",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -42986,7 +42986,7 @@
           "name": "Courage"
         }
       ],
-      "formId": "0xFE2A3892",
+      "formId": "0xFE2A2892",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -44446,7 +44446,7 @@
           "name": "Stendarr's Safeguard - Solar Aura - Scorch Undead"
         }
       ],
-      "formId": "0xFE5B6852",
+      "formId": "0xFE5B5852",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -44477,7 +44477,7 @@
           "name": "Harsh Lesson"
         }
       ],
-      "formId": "0xFE64EABA",
+      "formId": "0xFE64DABA",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -44514,7 +44514,7 @@
           "name": "Bane of the Undead"
         }
       ],
-      "formId": "0xFE651819",
+      "formId": "0xFE650819",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -44609,7 +44609,7 @@
           "name": "Locust Storm"
         }
       ],
-      "formId": "0xFE651841",
+      "formId": "0xFE650841",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -44662,7 +44662,7 @@
           "name": "Locust Storm"
         }
       ],
-      "formId": "0xFE65184E",
+      "formId": "0xFE65084E",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -44694,7 +44694,7 @@
           "name": "Locust Storm"
         }
       ],
-      "formId": "0xFE65184F",
+      "formId": "0xFE65084F",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -44740,7 +44740,7 @@
           "name": "Conjure Soul Cairn Nord Archer"
         }
       ],
-      "formId": "0xFE674C42",
+      "formId": "0xFE673C42",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -44765,7 +44765,7 @@
           "name": "Conjure Soul Cairn Wolf Warrior"
         }
       ],
-      "formId": "0xFE674AFD",
+      "formId": "0xFE673AFD",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -44790,7 +44790,7 @@
           "name": "Conjure Soul Cairn Champion Guard"
         }
       ],
-      "formId": "0xFE674F4F",
+      "formId": "0xFE673F4F",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -44815,7 +44815,7 @@
           "name": "Conjure Soul Cairn Summon Soul Cairn Champion Guard"
         }
       ],
-      "formId": "0xFE674F50",
+      "formId": "0xFE673F50",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -44840,7 +44840,7 @@
           "name": "Conjure Soul Cairn Akaviri Dragonguard"
         }
       ],
-      "formId": "0xFE674F51",
+      "formId": "0xFE673F51",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -44865,7 +44865,7 @@
           "name": "Conjure Soul Cairn Akaviri Dragonguard"
         }
       ],
-      "formId": "0xFE674F52",
+      "formId": "0xFE673F52",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -44904,7 +44904,7 @@
           "name": "twilight guardian"
         }
       ],
-      "formId": "0xFE674852",
+      "formId": "0xFE673852",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -44929,7 +44929,7 @@
           "name": "Conjure Soul Cairn Champion"
         }
       ],
-      "formId": "0xFE674AE0",
+      "formId": "0xFE673AE0",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -44954,7 +44954,7 @@
           "name": "Conjure Soul Cairn Akaviri Commander"
         }
       ],
-      "formId": "0xFE674AE1",
+      "formId": "0xFE673AE1",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -44979,7 +44979,7 @@
           "name": "Conjure Soul Cairn Akaviri Warrior"
         }
       ],
-      "formId": "0xFE674AE2",
+      "formId": "0xFE673AE2",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -45004,7 +45004,7 @@
           "name": "Conjure Soul Cairn Akaviri Archer"
         }
       ],
-      "formId": "0xFE674AE3",
+      "formId": "0xFE673AE3",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -45029,7 +45029,7 @@
           "name": "Conjure Soul Cairn Nord Warrior"
         }
       ],
-      "formId": "0xFE674AE4",
+      "formId": "0xFE673AE4",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -45054,7 +45054,7 @@
           "name": "Conjure Soul Cairn Nord Archer"
         }
       ],
-      "formId": "0xFE674AE5",
+      "formId": "0xFE673AE5",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -45079,7 +45079,7 @@
           "name": "Conjure Soul Cairn Wolf Warrior"
         }
       ],
-      "formId": "0xFE674AE6",
+      "formId": "0xFE673AE6",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -45104,7 +45104,7 @@
           "name": "Conjure Soul Cairn Glass Archer"
         }
       ],
-      "formId": "0xFE674AE7",
+      "formId": "0xFE673AE7",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -45129,7 +45129,7 @@
           "name": "Conjure Soul Cairn Knight"
         }
       ],
-      "formId": "0xFE674AE8",
+      "formId": "0xFE673AE8",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -45154,7 +45154,7 @@
           "name": "Conjure Soul Cairn Akaviri Archer"
         }
       ],
-      "formId": "0xFE674AF4",
+      "formId": "0xFE673AF4",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -45179,7 +45179,7 @@
           "name": "Conjure Soul Cairn Akaviri Commander"
         }
       ],
-      "formId": "0xFE674AF5",
+      "formId": "0xFE673AF5",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -45204,7 +45204,7 @@
           "name": "Conjure Soul Cairn Akaviri Warrior"
         }
       ],
-      "formId": "0xFE674AF6",
+      "formId": "0xFE673AF6",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -45229,7 +45229,7 @@
           "name": "Conjure Soul Cairn Glass Archer"
         }
       ],
-      "formId": "0xFE674AF7",
+      "formId": "0xFE673AF7",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -45254,7 +45254,7 @@
           "name": "Conjure Soul Cairn Knight"
         }
       ],
-      "formId": "0xFE674AF8",
+      "formId": "0xFE673AF8",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -45279,7 +45279,7 @@
           "name": "Conjure Soul Cairn Champion"
         }
       ],
-      "formId": "0xFE674AF9",
+      "formId": "0xFE673AF9",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -45304,7 +45304,7 @@
           "name": "Conjure Soul Cairn Nord Archer"
         }
       ],
-      "formId": "0xFE674AFA",
+      "formId": "0xFE673AFA",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -45329,7 +45329,7 @@
           "name": "Conjure Soul Cairn Nord Warrior"
         }
       ],
-      "formId": "0xFE674AFB",
+      "formId": "0xFE673AFB",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -45354,7 +45354,7 @@
           "name": "Conjure a Soul Cairn Shouter"
         }
       ],
-      "formId": "0xFE674AFC",
+      "formId": "0xFE673AFC",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -45379,7 +45379,7 @@
           "name": "Conjure a Soul Cairn Shouter"
         }
       ],
-      "formId": "0xFE674AE9",
+      "formId": "0xFE673AE9",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -45404,7 +45404,7 @@
           "name": "Conjure Soul Cairn Wolf Spirit"
         }
       ],
-      "formId": "0xFE674C26",
+      "formId": "0xFE673C26",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -45429,7 +45429,7 @@
           "name": "Conjure Soul Cairn Wolf Spirit"
         }
       ],
-      "formId": "0xFE674C2C",
+      "formId": "0xFE673C2C",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -45475,7 +45475,7 @@
           "name": "Conjure Soul Cairn Akaviri Warrior"
         }
       ],
-      "formId": "0xFE674C3F",
+      "formId": "0xFE673C3F",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -45521,7 +45521,7 @@
           "name": "Conjure Soul Cairn Akaviri Warrior"
         }
       ],
-      "formId": "0xFE674C40",
+      "formId": "0xFE673C40",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -45567,7 +45567,7 @@
           "name": "Conjure Soul Cairn Nord Warrior"
         }
       ],
-      "formId": "0xFE674C41",
+      "formId": "0xFE673C41",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -45755,7 +45755,7 @@
           "name": "Daemon"
         }
       ],
-      "formId": "0xFE6F3903",
+      "formId": "0xFE6F2903",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellBound_Weapon",
@@ -45830,7 +45830,7 @@
           "name": "Fragments Fettering - Sleet Scythe"
         }
       ],
-      "formId": "0xFE71D82E",
+      "formId": "0xFE71C82E",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -45855,7 +45855,7 @@
           "name": "Fragments Fettering - Ember Whip"
         }
       ],
-      "formId": "0xFE71D82F",
+      "formId": "0xFE71C82F",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -45880,7 +45880,7 @@
           "name": "Fragments Fettering - Carmine Whip"
         }
       ],
-      "formId": "0xFE71D830",
+      "formId": "0xFE71C830",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -45905,7 +45905,7 @@
           "name": "Fragments Fettering - Spectral Whip"
         }
       ],
-      "formId": "0xFE71D831",
+      "formId": "0xFE71C831",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -45930,7 +45930,7 @@
           "name": "Fragments Fettering - Verdure Whip"
         }
       ],
-      "formId": "0xFE71D824",
+      "formId": "0xFE71C824",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -45955,7 +45955,7 @@
           "name": "Fragments Fettering - Discharge Whip"
         }
       ],
-      "formId": "0xFE71D825",
+      "formId": "0xFE71C825",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -45980,7 +45980,7 @@
           "name": "Fragments Fettering - Mending Whip"
         }
       ],
-      "formId": "0xFE71D826",
+      "formId": "0xFE71C826",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -46005,7 +46005,7 @@
           "name": "Fragments Fettering - Sleet Whip"
         }
       ],
-      "formId": "0xFE71D827",
+      "formId": "0xFE71C827",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -46030,7 +46030,7 @@
           "name": "Fragments Fettering - Carmine Scythe"
         }
       ],
-      "formId": "0xFE71D828",
+      "formId": "0xFE71C828",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -46055,7 +46055,7 @@
           "name": "Fragments Fettering - Spectral Scythe"
         }
       ],
-      "formId": "0xFE71D829",
+      "formId": "0xFE71C829",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -46080,7 +46080,7 @@
           "name": "Fragments Fettering - Verdure Scythe"
         }
       ],
-      "formId": "0xFE71D82A",
+      "formId": "0xFE71C82A",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -46105,7 +46105,7 @@
           "name": "Fragments Fettering - Discharge Scythe"
         }
       ],
-      "formId": "0xFE71D82B",
+      "formId": "0xFE71C82B",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -46130,7 +46130,7 @@
           "name": "Fragments Fettering - Mending Scythe"
         }
       ],
-      "formId": "0xFE71D82C",
+      "formId": "0xFE71C82C",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -46155,7 +46155,7 @@
           "name": "Fragments Fettering - Ember Scythe"
         }
       ],
-      "formId": "0xFE71D82D",
+      "formId": "0xFE71C82D",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -46192,7 +46192,7 @@
           "name": "Bane of the Undead"
         }
       ],
-      "formId": "0xFE731D6B",
+      "formId": "0xFE730D6B",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -46940,7 +46940,7 @@
           "name": "Conjure Legendary Wabbit"
         }
       ],
-      "formId": "0xFE78380C",
+      "formId": "0xFE78280C",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47013,7 +47013,7 @@
           "name": "Snowray Freezing Poison"
         }
       ],
-      "formId": "0xFE78F814",
+      "formId": "0xFE78E814",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47044,7 +47044,7 @@
           "name": "Sea Giant Shield Bash"
         }
       ],
-      "formId": "0xFE78F828",
+      "formId": "0xFE78E828",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47075,7 +47075,7 @@
           "name": "Slow"
         }
       ],
-      "formId": "0xFE78F847",
+      "formId": "0xFE78E847",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47099,7 +47099,7 @@
           "name": "Stagger Area Attack Frost Atronach"
         }
       ],
-      "formId": "0xFE78F86C",
+      "formId": "0xFE78E86C",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47136,7 +47136,7 @@
           "name": "Slow"
         }
       ],
-      "formId": "0xFE78F86E",
+      "formId": "0xFE78E86E",
       "keywords": [
         "OCF_EquipTypeRightHand"
       ],
@@ -47167,7 +47167,7 @@
           "name": "Frost Damage"
         }
       ],
-      "formId": "0xFE78F871",
+      "formId": "0xFE78E871",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47191,7 +47191,7 @@
           "name": "Stagger Area Attack Frost Atronach"
         }
       ],
-      "formId": "0xFE79180B",
+      "formId": "0xFE79080B",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47215,7 +47215,7 @@
           "name": "Stagger Area Attack"
         }
       ],
-      "formId": "0xFE791811",
+      "formId": "0xFE790811",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47246,7 +47246,7 @@
           "name": "Fire Damage"
         }
       ],
-      "formId": "0xFE79280E",
+      "formId": "0xFE79180E",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47520,7 +47520,7 @@
           "name": "Stagger Area Attack Frost Atronach"
         }
       ],
-      "formId": "0xFE793807",
+      "formId": "0xFE792807",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47550,7 +47550,7 @@
           "name": "Crystal Golem Attack"
         }
       ],
-      "formId": "0xFE793809",
+      "formId": "0xFE792809",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47574,7 +47574,7 @@
           "name": "Storm Golem Lightning"
         }
       ],
-      "formId": "0xFE79480D",
+      "formId": "0xFE79380D",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -47598,7 +47598,7 @@
           "name": "Restore Health"
         }
       ],
-      "formId": "0xFE79480E",
+      "formId": "0xFE79380E",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -47623,7 +47623,7 @@
           "name": "Sparks"
         }
       ],
-      "formId": "0xFE794810",
+      "formId": "0xFE793810",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -47648,7 +47648,7 @@
           "name": "Shock Cloak"
         }
       ],
-      "formId": "0xFE794813",
+      "formId": "0xFE793813",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47673,7 +47673,7 @@
           "name": "Conjure Storm Golem"
         }
       ],
-      "formId": "0xFE794817",
+      "formId": "0xFE793817",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47703,7 +47703,7 @@
           "name": "Scarring Burns Aimed Concentration"
         }
       ],
-      "formId": "0xFE796820",
+      "formId": "0xFE795820",
       "keywords": [
         "OCF_EquipTypeRightHand"
       ],
@@ -47728,7 +47728,7 @@
           "name": "Minotaur Fire Rage"
         }
       ],
-      "formId": "0xFE796821",
+      "formId": "0xFE795821",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -47752,7 +47752,7 @@
           "name": "Minotaur Flame Shield"
         }
       ],
-      "formId": "0xFE796827",
+      "formId": "0xFE795827",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47782,7 +47782,7 @@
           "name": "Scarring Burns Aimed Concentration"
         }
       ],
-      "formId": "0xFE796828",
+      "formId": "0xFE795828",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47806,7 +47806,7 @@
           "name": "Stagger Area Attack"
         }
       ],
-      "formId": "0xFE79683D",
+      "formId": "0xFE79583D",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47831,7 +47831,7 @@
           "name": "Shock Cloak"
         }
       ],
-      "formId": "0xFE796840",
+      "formId": "0xFE795840",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47868,7 +47868,7 @@
           "name": "Frostfall Aimed Concentration"
         }
       ],
-      "formId": "0xFE797821",
+      "formId": "0xFE796821",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47893,7 +47893,7 @@
           "name": "Flames"
         }
       ],
-      "formId": "0xFE797827",
+      "formId": "0xFE796827",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47918,7 +47918,7 @@
           "name": "Frostbite"
         }
       ],
-      "formId": "0xFE797828",
+      "formId": "0xFE796828",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47943,7 +47943,7 @@
           "name": "Sparks"
         }
       ],
-      "formId": "0xFE797829",
+      "formId": "0xFE796829",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47968,7 +47968,7 @@
           "name": "Flames"
         }
       ],
-      "formId": "0xFE797839",
+      "formId": "0xFE796839",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -47992,7 +47992,7 @@
           "name": "Flaming Wrath"
         }
       ],
-      "formId": "0xFE797866",
+      "formId": "0xFE796866",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48017,7 +48017,7 @@
           "name": "Chilling Wrath"
         }
       ],
-      "formId": "0xFE797869",
+      "formId": "0xFE796869",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48042,7 +48042,7 @@
           "name": "Sparkling Wrath"
         }
       ],
-      "formId": "0xFE79786B",
+      "formId": "0xFE79686B",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48067,7 +48067,7 @@
           "name": "Flame Cloak"
         }
       ],
-      "formId": "0xFE79786D",
+      "formId": "0xFE79686D",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48091,7 +48091,7 @@
           "name": "Frost Cloak"
         }
       ],
-      "formId": "0xFE79788D",
+      "formId": "0xFE79688D",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48115,7 +48115,7 @@
           "name": "Shock Cloak"
         }
       ],
-      "formId": "0xFE7978A3",
+      "formId": "0xFE7968A3",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48140,7 +48140,7 @@
           "name": "Ice Piercers"
         }
       ],
-      "formId": "0xFE7978FA",
+      "formId": "0xFE7968FA",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48172,7 +48172,7 @@
           "name": "Drain Health"
         }
       ],
-      "formId": "0xFE79791A",
+      "formId": "0xFE79691A",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48202,7 +48202,7 @@
           "name": "Water Hazard"
         }
       ],
-      "formId": "0xFE79A81E",
+      "formId": "0xFE79981E",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48234,7 +48234,7 @@
           "name": "Rapids Regen Damage"
         }
       ],
-      "formId": "0xFE79A82A",
+      "formId": "0xFE79982A",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48266,7 +48266,7 @@
           "name": "Rapids Regen Damage"
         }
       ],
-      "formId": "0xFE79A837",
+      "formId": "0xFE799837",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48304,7 +48304,7 @@
           "name": "Waterbolt Regen Damage"
         }
       ],
-      "formId": "0xFE79A838",
+      "formId": "0xFE799838",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48336,7 +48336,7 @@
           "name": "Water Rune Regen Damage"
         }
       ],
-      "formId": "0xFE79A83A",
+      "formId": "0xFE79983A",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48374,7 +48374,7 @@
           "name": "Water Area Regen Damage"
         }
       ],
-      "formId": "0xFE79A83B",
+      "formId": "0xFE79983B",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48399,7 +48399,7 @@
           "name": "Water Cloak"
         }
       ],
-      "formId": "0xFE79A83E",
+      "formId": "0xFE79983E",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48437,7 +48437,7 @@
           "name": "Waterbolt Regen Damage"
         }
       ],
-      "formId": "0xFE79A83F",
+      "formId": "0xFE79983F",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48469,7 +48469,7 @@
           "name": "Water Area Regen Damage"
         }
       ],
-      "formId": "0xFE79A841",
+      "formId": "0xFE799841",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -48501,7 +48501,7 @@
           "name": "Water Barrier Regen Damage"
         }
       ],
-      "formId": "0xFE79A842",
+      "formId": "0xFE799842",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48539,7 +48539,7 @@
           "name": "Waterbolt Regen Damage"
         }
       ],
-      "formId": "0xFE79A881",
+      "formId": "0xFE799881",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -48577,7 +48577,7 @@
           "name": "Water Area Regen Damage"
         }
       ],
-      "formId": "0xFE79A882",
+      "formId": "0xFE799882",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -48602,7 +48602,7 @@
           "name": "Conjure Ogrim"
         }
       ],
-      "formId": "0xFE79B80A",
+      "formId": "0xFE79A80A",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48626,7 +48626,7 @@
           "name": "Stagger Area Attack Frost Atronach"
         }
       ],
-      "formId": "0xFE79B80C",
+      "formId": "0xFE79A80C",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48651,7 +48651,7 @@
           "name": "Conjure Aegis of the Sigil"
         }
       ],
-      "formId": "0xFE79C807",
+      "formId": "0xFE79B807",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48682,7 +48682,7 @@
           "name": "Maces of Damnation"
         }
       ],
-      "formId": "0xFE79C80B",
+      "formId": "0xFE79B80B",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48944,7 +48944,7 @@
           "name": "Conjure Doomsday of Blades"
         }
       ],
-      "formId": "0xFE79D807",
+      "formId": "0xFE79C807",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48969,7 +48969,7 @@
           "name": "Conjure Manic Grummite Swampbeater"
         }
       ],
-      "formId": "0xFE79F838",
+      "formId": "0xFE79E838",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -48994,7 +48994,7 @@
           "name": "Conjure Demented Grummite Swampbeater"
         }
       ],
-      "formId": "0xFE79F83B",
+      "formId": "0xFE79E83B",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49019,7 +49019,7 @@
           "name": "Conjure Manic Grummite Boglooter"
         }
       ],
-      "formId": "0xFE79F83E",
+      "formId": "0xFE79E83E",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49044,7 +49044,7 @@
           "name": "Conjure Demented Grummite Boglooter"
         }
       ],
-      "formId": "0xFE79F841",
+      "formId": "0xFE79E841",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49069,7 +49069,7 @@
           "name": "Conjure Manic Grummite Fogmugger"
         }
       ],
-      "formId": "0xFE79F844",
+      "formId": "0xFE79E844",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49094,7 +49094,7 @@
           "name": "Conjure Demented Grummite Fogmugger"
         }
       ],
-      "formId": "0xFE79F847",
+      "formId": "0xFE79E847",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49119,7 +49119,7 @@
           "name": "Summon Helhest"
         }
       ],
-      "formId": "0xFE7A0806",
+      "formId": "0xFE79F806",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49144,7 +49144,7 @@
           "name": "Flame Cloak"
         }
       ],
-      "formId": "0xFE7A180B",
+      "formId": "0xFE7A080B",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49169,7 +49169,7 @@
           "name": "Blue Flame Cloak"
         }
       ],
-      "formId": "0xFE7A180C",
+      "formId": "0xFE7A080C",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49194,7 +49194,7 @@
           "name": "Shock Cloak"
         }
       ],
-      "formId": "0xFE7A180D",
+      "formId": "0xFE7A080D",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49219,7 +49219,7 @@
           "name": "Flame Cloak"
         }
       ],
-      "formId": "0xFE7A1823",
+      "formId": "0xFE7A0823",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49256,7 +49256,7 @@
           "name": "Scarring Burns Aimed Area"
         }
       ],
-      "formId": "0xFE7A1845",
+      "formId": "0xFE7A0845",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49293,7 +49293,7 @@
           "name": "Scarring Burns Aimed"
         }
       ],
-      "formId": "0xFE7A1847",
+      "formId": "0xFE7A0847",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49330,7 +49330,7 @@
           "name": "Scarring Burns Aimed"
         }
       ],
-      "formId": "0xFE7A1848",
+      "formId": "0xFE7A0848",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49367,7 +49367,7 @@
           "name": "Scarring Burns Aimed Area"
         }
       ],
-      "formId": "0xFE7A1849",
+      "formId": "0xFE7A0849",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49404,7 +49404,7 @@
           "name": "Blue Firebolt"
         }
       ],
-      "formId": "0xFE7A184A",
+      "formId": "0xFE7A084A",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49428,7 +49428,7 @@
           "name": "Fire hazard"
         }
       ],
-      "formId": "0xFE7A1855",
+      "formId": "0xFE7A0855",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49452,7 +49452,7 @@
           "name": "Fire hazard"
         }
       ],
-      "formId": "0xFE7A1856",
+      "formId": "0xFE7A0856",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49483,7 +49483,7 @@
           "name": "Scarring Burns Aimed Concentration"
         }
       ],
-      "formId": "0xFE7A1857",
+      "formId": "0xFE7A0857",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49514,7 +49514,7 @@
           "name": "Scarring Burns Aimed Concentration"
         }
       ],
-      "formId": "0xFE7A1863",
+      "formId": "0xFE7A0863",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49545,7 +49545,7 @@
           "name": "Scarring Burns Aimed Concentration"
         }
       ],
-      "formId": "0xFE7A1885",
+      "formId": "0xFE7A0885",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49570,7 +49570,7 @@
           "name": "Blue Flame Cloak"
         }
       ],
-      "formId": "0xFE7A1889",
+      "formId": "0xFE7A0889",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49601,7 +49601,7 @@
           "name": "Scarring Burns Aimed Concentration"
         }
       ],
-      "formId": "0xFE7A188A",
+      "formId": "0xFE7A088A",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49644,7 +49644,7 @@
           "name": "Scarring Burns Self Area"
         }
       ],
-      "formId": "0xFE7A188E",
+      "formId": "0xFE7A088E",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -49669,7 +49669,7 @@
           "name": "Fire Rune Blue"
         }
       ],
-      "formId": "0xFE7A189C",
+      "formId": "0xFE7A089C",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_ArcaneFire"
@@ -49695,7 +49695,7 @@
           "name": "Blue Firebolt"
         }
       ],
-      "formId": "0xFE7A18A2",
+      "formId": "0xFE7A08A2",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -49720,7 +49720,7 @@
           "name": "Blue Fireball"
         }
       ],
-      "formId": "0xFE7A18A3",
+      "formId": "0xFE7A08A3",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -49745,7 +49745,7 @@
           "name": "Azure Flare"
         }
       ],
-      "formId": "0xFE7A18A4",
+      "formId": "0xFE7A08A4",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -49770,7 +49770,7 @@
           "name": "Blue Fire Damage"
         }
       ],
-      "formId": "0xFE7A18AB",
+      "formId": "0xFE7A08AB",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49795,7 +49795,7 @@
           "name": "Blue Fire Damage"
         }
       ],
-      "formId": "0xFE7A18AC",
+      "formId": "0xFE7A08AC",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49820,7 +49820,7 @@
           "name": "Blue Flames"
         }
       ],
-      "formId": "0xFE7A18AE",
+      "formId": "0xFE7A08AE",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49845,7 +49845,7 @@
           "name": "Blue Flame Cloak"
         }
       ],
-      "formId": "0xFE7A18C6",
+      "formId": "0xFE7A08C6",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49870,7 +49870,7 @@
           "name": "Shock Damage Area"
         }
       ],
-      "formId": "0xFE7A18D7",
+      "formId": "0xFE7A08D7",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49895,7 +49895,7 @@
           "name": "Shock Damage Area"
         }
       ],
-      "formId": "0xFE7A18DB",
+      "formId": "0xFE7A08DB",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49920,7 +49920,7 @@
           "name": "Shock Damage Area"
         }
       ],
-      "formId": "0xFE7A18DC",
+      "formId": "0xFE7A08DC",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49945,7 +49945,7 @@
           "name": "Shock Damage Area"
         }
       ],
-      "formId": "0xFE7A18DD",
+      "formId": "0xFE7A08DD",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -49982,7 +49982,7 @@
           "name": "Static Field Aimed Area"
         }
       ],
-      "formId": "0xFE7A18E3",
+      "formId": "0xFE7A08E3",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -50007,7 +50007,7 @@
           "name": "Conjure Bone Colossus"
         }
       ],
-      "formId": "0xFE7A198E",
+      "formId": "0xFE7A098E",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -50032,7 +50032,7 @@
           "name": "Conjure Dragonfire Bone Colossus"
         }
       ],
-      "formId": "0xFE7A198F",
+      "formId": "0xFE7A098F",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -50057,7 +50057,7 @@
           "name": "Conjure Stonefire Bone Colossus"
         }
       ],
-      "formId": "0xFE7A1990",
+      "formId": "0xFE7A0990",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -50082,7 +50082,7 @@
           "name": "Conjure Thunderchild Bone Colossus"
         }
       ],
-      "formId": "0xFE7A1991",
+      "formId": "0xFE7A0991",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -50106,7 +50106,7 @@
           "name": "Ettin Fire Magic"
         }
       ],
-      "formId": "0xFE7A28AB",
+      "formId": "0xFE7A18AB",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -50136,7 +50136,7 @@
           "name": "Harsh Lesson"
         }
       ],
-      "formId": "0xFE7A3813",
+      "formId": "0xFE7A2813",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -50167,7 +50167,7 @@
           "name": "Fire Damage"
         }
       ],
-      "formId": "0xFE7A3814",
+      "formId": "0xFE7A2814",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -50197,7 +50197,7 @@
           "name": "Harsh Lesson"
         }
       ],
-      "formId": "0xFE7A3847",
+      "formId": "0xFE7A2847",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -50222,7 +50222,7 @@
           "name": "Conjure Havocrel"
         }
       ],
-      "formId": "0xFE7A385E",
+      "formId": "0xFE7A285E",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -50247,7 +50247,7 @@
           "name": "Dagon's Wrath"
         }
       ],
-      "formId": "0xFE7A3862",
+      "formId": "0xFE7A2862",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -50272,7 +50272,7 @@
           "name": "Conjure Ruinach Demolisher"
         }
       ],
-      "formId": "0xFE7A3877",
+      "formId": "0xFE7A2877",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -50297,7 +50297,7 @@
           "name": "Conjure Ruinach Blazemaul"
         }
       ],
-      "formId": "0xFE7A387A",
+      "formId": "0xFE7A287A",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -50322,7 +50322,7 @@
           "name": "Conjure Scamp"
         }
       ],
-      "formId": "0xFE7A4817",
+      "formId": "0xFE7A3817",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -50347,7 +50347,7 @@
           "name": "Conjure Banekamp"
         }
       ],
-      "formId": "0xFE7A481A",
+      "formId": "0xFE7A381A",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -50372,7 +50372,7 @@
           "name": "Conjure Coldharbour Banekin"
         }
       ],
-      "formId": "0xFE7A481D",
+      "formId": "0xFE7A381D",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -50397,7 +50397,7 @@
           "name": "Fire Damage"
         }
       ],
-      "formId": "0xFE7A4860",
+      "formId": "0xFE7A3860",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -50422,7 +50422,7 @@
           "name": "Fire Damage"
         }
       ],
-      "formId": "0xFE7A4861",
+      "formId": "0xFE7A3861",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -50447,7 +50447,7 @@
           "name": "Fire Damage"
         }
       ],
-      "formId": "0xFE7A4862",
+      "formId": "0xFE7A3862",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -50472,7 +50472,7 @@
           "name": "Fire Damage"
         }
       ],
-      "formId": "0xFE7A4865",
+      "formId": "0xFE7A3865",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -50503,7 +50503,7 @@
           "name": "Harsh Lesson"
         }
       ],
-      "formId": "0xFE7A486A",
+      "formId": "0xFE7A386A",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -50534,7 +50534,7 @@
           "name": "Harsh Lesson"
         }
       ],
-      "formId": "0xFE7A48B8",
+      "formId": "0xFE7A38B8",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -50559,7 +50559,7 @@
           "name": "Conjure Deadlands Banekin"
         }
       ],
-      "formId": "0xFE7A48BA",
+      "formId": "0xFE7A38BA",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -50584,7 +50584,7 @@
           "name": "Lightning Bolt"
         }
       ],
-      "formId": "0xFE7A48C5",
+      "formId": "0xFE7A38C5",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -50609,7 +50609,7 @@
           "name": "Vampiric Invisibility"
         }
       ],
-      "formId": "0xFE7A5841",
+      "formId": "0xFE7A4841",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -50634,7 +50634,7 @@
           "name": "Conjure Doomsday of Blades"
         }
       ],
-      "formId": "0xFE7A6808",
+      "formId": "0xFE7A5808",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -50659,7 +50659,7 @@
           "name": "Conjure Aegis of the Sigil"
         }
       ],
-      "formId": "0xFE7A681A",
+      "formId": "0xFE7A581A",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -50690,7 +50690,7 @@
           "name": "Maces of Damnation"
         }
       ],
-      "formId": "0xFE7A681E",
+      "formId": "0xFE7A581E",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -50865,7 +50865,7 @@
           "name": "Call of the Marsh"
         }
       ],
-      "formId": "0xFE7B2878",
+      "formId": "0xFE7B1878",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -51593,7 +51593,7 @@
           "name": "combat idle"
         }
       ],
-      "formId": "0xFE927801",
+      "formId": "0xFE926801",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -51617,7 +51617,7 @@
           "name": "PowerAttack"
         }
       ],
-      "formId": "0xFE927805",
+      "formId": "0xFE926805",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -51641,7 +51641,7 @@
           "name": "non_combat idle"
         }
       ],
-      "formId": "0xFE927807",
+      "formId": "0xFE926807",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -51665,7 +51665,7 @@
           "name": "phase1"
         }
       ],
-      "formId": "0xFE92780A",
+      "formId": "0xFE92680A",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -51689,7 +51689,7 @@
           "name": "Shield Flip"
         }
       ],
-      "formId": "0xFE92780D",
+      "formId": "0xFE92680D",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -51713,7 +51713,7 @@
           "name": "ChargeEffect1"
         }
       ],
-      "formId": "0xFE927813",
+      "formId": "0xFE926813",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -51737,7 +51737,7 @@
           "name": "ChargeEffect2"
         }
       ],
-      "formId": "0xFE92781B",
+      "formId": "0xFE92681B",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -51761,7 +51761,7 @@
           "name": "ragdoll"
         }
       ],
-      "formId": "0xFE92781C",
+      "formId": "0xFE92681C",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -51785,7 +51785,7 @@
           "name": "ChargeEffect3"
         }
       ],
-      "formId": "0xFE92781D",
+      "formId": "0xFE92681D",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -51809,7 +51809,7 @@
           "name": "Shield Flip2"
         }
       ],
-      "formId": "0xFE927829",
+      "formId": "0xFE926829",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -51833,7 +51833,7 @@
           "name": "Stagger Area Attack"
         }
       ],
-      "formId": "0xFE92782B",
+      "formId": "0xFE92682B",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -51863,7 +51863,7 @@
           "name": "Stagger Push"
         }
       ],
-      "formId": "0xFE92782D",
+      "formId": "0xFE92682D",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -51911,7 +51911,7 @@
           "name": "ReduceStress"
         }
       ],
-      "formId": "0xFE93A82F",
+      "formId": "0xFE93982F",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -70601,7 +70601,7 @@
           "name": "Fortify Acrobatics"
         }
       ],
-      "formId": "0xFE94C802",
+      "formId": "0xFE94B802",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellEnhance_Fall",
@@ -70628,7 +70628,7 @@
           "name": "Fortify Acrobatics"
         }
       ],
-      "formId": "0xFE94C805",
+      "formId": "0xFE94B805",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellEnhance_Fall",
@@ -73620,7 +73620,7 @@
           "name": "Stunning Strike"
         }
       ],
-      "formId": "0xFE9568E7",
+      "formId": "0xFE9558E7",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -73644,7 +73644,7 @@
           "name": "Combustion"
         }
       ],
-      "formId": "0xFE95696E",
+      "formId": "0xFE95596E",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -73674,7 +73674,7 @@
           "name": "Power Surge"
         }
       ],
-      "formId": "0xFE956973",
+      "formId": "0xFE955973",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -73698,7 +73698,7 @@
           "name": "Combustion"
         }
       ],
-      "formId": "0xFE95697C",
+      "formId": "0xFE95597C",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -73728,7 +73728,7 @@
           "name": "Power Surge"
         }
       ],
-      "formId": "0xFE95697D",
+      "formId": "0xFE95597D",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -73758,7 +73758,7 @@
           "name": "Wildfire"
         }
       ],
-      "formId": "0xFE956984",
+      "formId": "0xFE955984",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -73782,7 +73782,7 @@
           "name": "Combustion"
         }
       ],
-      "formId": "0xFE956986",
+      "formId": "0xFE955986",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -73812,7 +73812,7 @@
           "name": "Wildfire"
         }
       ],
-      "formId": "0xFE95698C",
+      "formId": "0xFE95598C",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -73842,7 +73842,7 @@
           "name": "Wildfire"
         }
       ],
-      "formId": "0xFE9569B9",
+      "formId": "0xFE9559B9",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -73872,7 +73872,7 @@
           "name": "Wildfire"
         }
       ],
-      "formId": "0xFE9569BA",
+      "formId": "0xFE9559BA",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -73896,7 +73896,7 @@
           "name": "Impact"
         }
       ],
-      "formId": "0xFE9569DE",
+      "formId": "0xFE9559DE",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -73926,7 +73926,7 @@
           "name": "Combustion"
         }
       ],
-      "formId": "0xFE9569E4",
+      "formId": "0xFE9559E4",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -73956,7 +73956,7 @@
           "name": "Combustion"
         }
       ],
-      "formId": "0xFE9569E7",
+      "formId": "0xFE9559E7",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -73980,7 +73980,7 @@
           "name": "Combustion"
         }
       ],
-      "formId": "0xFE9569EB",
+      "formId": "0xFE9559EB",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -74010,7 +74010,7 @@
           "name": "Combustion"
         }
       ],
-      "formId": "0xFE9569EE",
+      "formId": "0xFE9559EE",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -74040,7 +74040,7 @@
           "name": "Combustion"
         }
       ],
-      "formId": "0xFE9569EF",
+      "formId": "0xFE9559EF",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -74094,7 +74094,7 @@
           "name": "Deep Freeze"
         }
       ],
-      "formId": "0xFE9569FB",
+      "formId": "0xFE9559FB",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -74859,7 +74859,7 @@
           "name": "Scorched Earth Trigger"
         }
       ],
-      "formId": "0xFE964879",
+      "formId": "0xFE963879",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -74884,7 +74884,7 @@
           "name": "Perk Refund"
         }
       ],
-      "formId": "0xFE9648DE",
+      "formId": "0xFE9638DE",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -74916,7 +74916,7 @@
           "name": "Neverworld"
         }
       ],
-      "formId": "0xFE964914",
+      "formId": "0xFE963914",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -74946,7 +74946,7 @@
           "name": "Inspire Restore Stamina"
         }
       ],
-      "formId": "0xFE96492B",
+      "formId": "0xFE96392B",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -74977,7 +74977,7 @@
           "name": "Scorched Earth Trigger"
         }
       ],
-      "formId": "0xFE96499D",
+      "formId": "0xFE96399D",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -75007,7 +75007,7 @@
           "name": "Scarring Burns Aimed Concentration"
         }
       ],
-      "formId": "0xFE9649E6",
+      "formId": "0xFE9639E6",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -75038,7 +75038,7 @@
           "name": "Frostfall Aimed Concentration"
         }
       ],
-      "formId": "0xFE9649E7",
+      "formId": "0xFE9639E7",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -75068,7 +75068,7 @@
           "name": "Static Field Aimed Concentration"
         }
       ],
-      "formId": "0xFE9649E8",
+      "formId": "0xFE9639E8",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -75100,7 +75100,7 @@
           "name": "Fear of Fire"
         }
       ],
-      "formId": "0xFE964A23",
+      "formId": "0xFE963A23",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -75125,7 +75125,7 @@
           "name": "Paralyze"
         }
       ],
-      "formId": "0xFE964AFF",
+      "formId": "0xFE963AFF",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -75155,7 +75155,7 @@
           "name": "Inspire Restore Stamina"
         }
       ],
-      "formId": "0xFE964B1B",
+      "formId": "0xFE963B1B",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -75272,7 +75272,7 @@
           "name": "Lamb to the Slaughter MR"
         }
       ],
-      "formId": "0xFE96680A",
+      "formId": "0xFE96580A",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -77519,7 +77519,7 @@
           "name": "Stagger Attack"
         }
       ],
-      "formId": "0xFE96D816",
+      "formId": "0xFE96C816",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -77569,7 +77569,7 @@
           "name": "Earth Resistence"
         }
       ],
-      "formId": "0xFE97A94D",
+      "formId": "0xFE97994D",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -77600,7 +77600,7 @@
           "name": "Conjure Potent Earth Thrall"
         }
       ],
-      "formId": "0xFE97A919",
+      "formId": "0xFE979919",
       "keywords": [
         "OCF_EquipTypeBothHands",
         "OCF_MgefClassEarth",
@@ -77633,7 +77633,7 @@
           "name": "Conjure Potent Wind Thrall"
         }
       ],
-      "formId": "0xFE97A91A",
+      "formId": "0xFE97991A",
       "keywords": [
         "OCF_EquipTypeBothHands",
         "OCF_MgefClassWind",
@@ -77666,7 +77666,7 @@
           "name": "Conjure Potent Water Thrall"
         }
       ],
-      "formId": "0xFE97A91B",
+      "formId": "0xFE97991B",
       "keywords": [
         "OCF_EquipTypeBothHands",
         "OCF_MgefClassWater",
@@ -77737,7 +77737,7 @@
           "name": "Harsh Lesson"
         }
       ],
-      "formId": "0xFE97AD65",
+      "formId": "0xFE979D65",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Earth"
@@ -77787,7 +77787,7 @@
           "name": "Water Resistance"
         }
       ],
-      "formId": "0xFE97A91C",
+      "formId": "0xFE97991C",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -77843,7 +77843,7 @@
           "name": "Water Weakness"
         }
       ],
-      "formId": "0xFE97A91D",
+      "formId": "0xFE97991D",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -77899,7 +77899,7 @@
           "name": "Water Weakness"
         }
       ],
-      "formId": "0xFE97A91F",
+      "formId": "0xFE97991F",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Water"
@@ -77962,7 +77962,7 @@
           "name": "Harsh Lesson"
         }
       ],
-      "formId": "0xFE97A920",
+      "formId": "0xFE979920",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Water"
@@ -78019,7 +78019,7 @@
           "name": "Water Weakness"
         }
       ],
-      "formId": "0xFE97A921",
+      "formId": "0xFE979921",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Water"
@@ -78082,7 +78082,7 @@
           "name": "Harsh Lesson"
         }
       ],
-      "formId": "0xFE97A922",
+      "formId": "0xFE979922",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Water"
@@ -78108,7 +78108,7 @@
           "name": "Rain Cloak"
         }
       ],
-      "formId": "0xFE97A923",
+      "formId": "0xFE979923",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_WaterCloak"
@@ -78171,7 +78171,7 @@
           "name": "Harsh Lesson"
         }
       ],
-      "formId": "0xFE97A924",
+      "formId": "0xFE979924",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Water"
@@ -78228,7 +78228,7 @@
           "name": "Water Weakness"
         }
       ],
-      "formId": "0xFE97A925",
+      "formId": "0xFE979925",
       "keywords": [
         "OCF_EquipTypeBothHands",
         "OCF_MgefSpellDamage_Water"
@@ -78285,7 +78285,7 @@
           "name": "Water Weakness"
         }
       ],
-      "formId": "0xFE97A926",
+      "formId": "0xFE979926",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Water"
@@ -78330,7 +78330,7 @@
           "name": "Wind Resistance"
         }
       ],
-      "formId": "0xFE97A927",
+      "formId": "0xFE979927",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -78380,7 +78380,7 @@
           "name": "Wind Resistance"
         }
       ],
-      "formId": "0xFE97A928",
+      "formId": "0xFE979928",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Wind"
@@ -78437,7 +78437,7 @@
           "name": "Harsh Lesson"
         }
       ],
-      "formId": "0xFE97A929",
+      "formId": "0xFE979929",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Wind"
@@ -78501,7 +78501,7 @@
           "name": "Dual Stagger"
         }
       ],
-      "formId": "0xFE97A92A",
+      "formId": "0xFE97992A",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Earth"
@@ -78559,7 +78559,7 @@
           "name": "Earth Weakness"
         }
       ],
-      "formId": "0xFE97A92B",
+      "formId": "0xFE97992B",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -78584,7 +78584,7 @@
           "name": "Rock Cloak"
         }
       ],
-      "formId": "0xFE97A92C",
+      "formId": "0xFE97992C",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_EarthCloak"
@@ -78654,7 +78654,7 @@
           "name": "Harsh Lesson"
         }
       ],
-      "formId": "0xFE97A92D",
+      "formId": "0xFE97992D",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Earth"
@@ -78712,7 +78712,7 @@
           "name": "Earth Weakness"
         }
       ],
-      "formId": "0xFE97A92E",
+      "formId": "0xFE97992E",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Earth"
@@ -78782,7 +78782,7 @@
           "name": "Harsh Lesson"
         }
       ],
-      "formId": "0xFE97A92F",
+      "formId": "0xFE97992F",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Earth"
@@ -78827,7 +78827,7 @@
           "name": "Wind Resistance"
         }
       ],
-      "formId": "0xFE97A930",
+      "formId": "0xFE979930",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Wind"
@@ -78884,7 +78884,7 @@
           "name": "Harsh Lesson"
         }
       ],
-      "formId": "0xFE97A931",
+      "formId": "0xFE979931",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Wind"
@@ -78910,7 +78910,7 @@
           "name": "Whirlwind Cloak"
         }
       ],
-      "formId": "0xFE97A932",
+      "formId": "0xFE979932",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_WindCloak"
@@ -78961,7 +78961,7 @@
           "name": "Earth Resistance"
         }
       ],
-      "formId": "0xFE97A933",
+      "formId": "0xFE979933",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -79024,7 +79024,7 @@
           "name": "Earth Resistence"
         }
       ],
-      "formId": "0xFE97A934",
+      "formId": "0xFE979934",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Earth"
@@ -79061,7 +79061,7 @@
           "name": "Wind Resistance"
         }
       ],
-      "formId": "0xFE97A935",
+      "formId": "0xFE979935",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -79111,7 +79111,7 @@
           "name": "Wind Resistance"
         }
       ],
-      "formId": "0xFE97A936",
+      "formId": "0xFE979936",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Wind"
@@ -79168,7 +79168,7 @@
           "name": "Harsh Lesson"
         }
       ],
-      "formId": "0xFE97A938",
+      "formId": "0xFE979938",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Wind"
@@ -79213,7 +79213,7 @@
           "name": "Wind Resistance"
         }
       ],
-      "formId": "0xFE97A939",
+      "formId": "0xFE979939",
       "keywords": [
         "OCF_EquipTypeBothHands",
         "OCF_MgefSpellDamage_Wind"
@@ -79239,7 +79239,7 @@
           "name": "Earthquake"
         }
       ],
-      "formId": "0xFE97A93B",
+      "formId": "0xFE97993B",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Earth"
@@ -79290,7 +79290,7 @@
           "name": "Earth Resistance"
         }
       ],
-      "formId": "0xFE97A93C",
+      "formId": "0xFE97993C",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -79314,7 +79314,7 @@
           "name": "Ash Paralysis"
         }
       ],
-      "formId": "0xFE97A93D",
+      "formId": "0xFE97993D",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -79364,7 +79364,7 @@
           "name": "Water Resistance"
         }
       ],
-      "formId": "0xFE97A93F",
+      "formId": "0xFE97993F",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -79395,7 +79395,7 @@
           "name": "Conjure Potent Water Atronach"
         }
       ],
-      "formId": "0xFE97A940",
+      "formId": "0xFE979940",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefClassWater",
@@ -79447,7 +79447,7 @@
           "name": "Water Resistance"
         }
       ],
-      "formId": "0xFE97A941",
+      "formId": "0xFE979941",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -79477,7 +79477,7 @@
           "name": "Wind Resistance"
         }
       ],
-      "formId": "0xFE97A942",
+      "formId": "0xFE979942",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -79508,7 +79508,7 @@
           "name": "Conjure Potent Wind Atronach"
         }
       ],
-      "formId": "0xFE97A944",
+      "formId": "0xFE979944",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefClassWind",
@@ -79554,7 +79554,7 @@
           "name": "Wind Resistance"
         }
       ],
-      "formId": "0xFE97A945",
+      "formId": "0xFE979945",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_Wind"
@@ -79586,7 +79586,7 @@
           "name": "Conjure Potent Earth Atronach"
         }
       ],
-      "formId": "0xFE97A946",
+      "formId": "0xFE979946",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefClassEarth",
@@ -79638,7 +79638,7 @@
           "name": "Earth Resistance"
         }
       ],
-      "formId": "0xFE97A947",
+      "formId": "0xFE979947",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -79670,7 +79670,7 @@
           "name": "Wind Force"
         }
       ],
-      "formId": "0xFE97A948",
+      "formId": "0xFE979948",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -79720,7 +79720,7 @@
           "name": "Water Resistance"
         }
       ],
-      "formId": "0xFE97A949",
+      "formId": "0xFE979949",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -79752,7 +79752,7 @@
           "name": "Wind Force"
         }
       ],
-      "formId": "0xFE97A94A",
+      "formId": "0xFE97994A",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -79802,7 +79802,7 @@
           "name": "Water Resistance"
         }
       ],
-      "formId": "0xFE97A94B",
+      "formId": "0xFE97994B",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -84209,7 +84209,7 @@
           "name": "Molten Aura"
         }
       ],
-      "formId": "0xFE97C825",
+      "formId": "0xFE97B825",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_AshFireCloak"
@@ -84246,7 +84246,7 @@
           "name": "Scarring Burns Aimed Concentration"
         }
       ],
-      "formId": "0xFE97C826",
+      "formId": "0xFE97B826",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -84282,7 +84282,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97C828",
+      "formId": "0xFE97B828",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -84331,7 +84331,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97C829",
+      "formId": "0xFE97B829",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_AshFire"
@@ -84381,7 +84381,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97C82A",
+      "formId": "0xFE97B82A",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefDeliverTouch",
@@ -84432,7 +84432,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97C82B",
+      "formId": "0xFE97B82B",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefDeliverTouch",
@@ -84483,7 +84483,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97C82C",
+      "formId": "0xFE97B82C",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_AshFire"
@@ -84527,7 +84527,7 @@
           "name": "Scarring Burns Aimed Concentration"
         }
       ],
-      "formId": "0xFE97C82D",
+      "formId": "0xFE97B82D",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_AshFire"
@@ -84577,7 +84577,7 @@
           "name": "Intense Flames Fear"
         }
       ],
-      "formId": "0xFE97C82E",
+      "formId": "0xFE97B82E",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_AshFire"
@@ -84627,7 +84627,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97C82F",
+      "formId": "0xFE97B82F",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefDeliverTouch",
@@ -84654,7 +84654,7 @@
           "name": "Molten Rune"
         }
       ],
-      "formId": "0xFE97C831",
+      "formId": "0xFE97B831",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_AshFire"
@@ -84680,7 +84680,7 @@
           "name": "Molten Lava Rune"
         }
       ],
-      "formId": "0xFE97C832",
+      "formId": "0xFE97B832",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_AshFire"
@@ -84730,7 +84730,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97C833",
+      "formId": "0xFE97B833",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_AshFire"
@@ -84780,7 +84780,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97C834",
+      "formId": "0xFE97B834",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_AshFire"
@@ -84830,7 +84830,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97C835",
+      "formId": "0xFE97B835",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_AshFire"
@@ -84880,7 +84880,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97C836",
+      "formId": "0xFE97B836",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefDeliverTouch",
@@ -84919,7 +84919,7 @@
           "name": "Scarring Burns Aimed Concentration"
         }
       ],
-      "formId": "0xFE97C837",
+      "formId": "0xFE97B837",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_AshFire"
@@ -84969,7 +84969,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97C838",
+      "formId": "0xFE97B838",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -85005,7 +85005,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97C83B",
+      "formId": "0xFE97B83B",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -85041,7 +85041,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97C83C",
+      "formId": "0xFE97B83C",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -85084,7 +85084,7 @@
           "name": "Scarring Burns Aimed Concentration"
         }
       ],
-      "formId": "0xFE97C8F2",
+      "formId": "0xFE97B8F2",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_AshFire"
@@ -85110,7 +85110,7 @@
           "name": "Conjure Molten Wyrm"
         }
       ],
-      "formId": "0xFE97C94C",
+      "formId": "0xFE97B94C",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_InvColorFireVolcanic",
@@ -85150,7 +85150,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97C951",
+      "formId": "0xFE97B951",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -85187,7 +85187,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97C952",
+      "formId": "0xFE97B952",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -85218,7 +85218,7 @@
           "name": "Molten Damage"
         }
       ],
-      "formId": "0xFE97C969",
+      "formId": "0xFE97B969",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_AshFire"
@@ -85250,7 +85250,7 @@
           "name": "Conjure Potent Molten Atronach"
         }
       ],
-      "formId": "0xFE97C980",
+      "formId": "0xFE97B980",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_InvColorFireVolcanic",
@@ -85284,7 +85284,7 @@
           "name": "Conjure Potent Molten Monarch"
         }
       ],
-      "formId": "0xFE97C981",
+      "formId": "0xFE97B981",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_InvColorFireVolcanic",
@@ -85330,7 +85330,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97C99E",
+      "formId": "0xFE97B99E",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -85362,7 +85362,7 @@
           "name": "Heating"
         }
       ],
-      "formId": "0xFE97C99F",
+      "formId": "0xFE97B99F",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -85393,7 +85393,7 @@
           "name": "Molten Skoria"
         }
       ],
-      "formId": "0xFE97C9AA",
+      "formId": "0xFE97B9AA",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_AshFire"
@@ -85418,7 +85418,7 @@
           "name": "Skoria Trigger"
         }
       ],
-      "formId": "0xFE97C9AB",
+      "formId": "0xFE97B9AB",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -85461,7 +85461,7 @@
           "name": "Scarring Burns Self Area"
         }
       ],
-      "formId": "0xFE97C9AD",
+      "formId": "0xFE97B9AD",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -85492,7 +85492,7 @@
           "name": "Arclight Aura"
         }
       ],
-      "formId": "0xFE97D825",
+      "formId": "0xFE97C825",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_ShockArcCloak",
@@ -85530,7 +85530,7 @@
           "name": "Static Field Aimed Concentration"
         }
       ],
-      "formId": "0xFE97D826",
+      "formId": "0xFE97C826",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -85572,7 +85572,7 @@
           "name": "Disintegrate"
         }
       ],
-      "formId": "0xFE97D828",
+      "formId": "0xFE97C828",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -85621,7 +85621,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97D829",
+      "formId": "0xFE97C829",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_ShockArc",
@@ -85672,7 +85672,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97D82A",
+      "formId": "0xFE97C82A",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefDeliverTouch",
@@ -85724,7 +85724,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97D82B",
+      "formId": "0xFE97C82B",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefDeliverTouch",
@@ -85776,7 +85776,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97D82C",
+      "formId": "0xFE97C82C",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_ShockArc",
@@ -85821,7 +85821,7 @@
           "name": "Static Field Aimed Concentration"
         }
       ],
-      "formId": "0xFE97D82D",
+      "formId": "0xFE97C82D",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_ShockArc",
@@ -85872,7 +85872,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97D82F",
+      "formId": "0xFE97C82F",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefDeliverTouch",
@@ -85900,7 +85900,7 @@
           "name": "Arclight Rune"
         }
       ],
-      "formId": "0xFE97D831",
+      "formId": "0xFE97C831",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_ShockArc",
@@ -85927,7 +85927,7 @@
           "name": "Arclight Charged Rune"
         }
       ],
-      "formId": "0xFE97D832",
+      "formId": "0xFE97C832",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_ShockArc",
@@ -85978,7 +85978,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97D833",
+      "formId": "0xFE97C833",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_ShockArc",
@@ -86029,7 +86029,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97D834",
+      "formId": "0xFE97C834",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_ShockArc",
@@ -86080,7 +86080,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97D835",
+      "formId": "0xFE97C835",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_ShockArc",
@@ -86131,7 +86131,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97D836",
+      "formId": "0xFE97C836",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefDeliverTouch",
@@ -86171,7 +86171,7 @@
           "name": "Scarring Burns Aimed Concentration"
         }
       ],
-      "formId": "0xFE97D837",
+      "formId": "0xFE97C837",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_ShockArc",
@@ -86222,7 +86222,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97D838",
+      "formId": "0xFE97C838",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -86264,7 +86264,7 @@
           "name": "Disintegrate"
         }
       ],
-      "formId": "0xFE97D83B",
+      "formId": "0xFE97C83B",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -86306,7 +86306,7 @@
           "name": "Disintegrate"
         }
       ],
-      "formId": "0xFE97D83C",
+      "formId": "0xFE97C83C",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -86349,7 +86349,7 @@
           "name": "Static Field Aimed Concentration"
         }
       ],
-      "formId": "0xFE97D8F2",
+      "formId": "0xFE97C8F2",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_ShockArc",
@@ -86382,7 +86382,7 @@
           "name": "Conjure Potent Arclight Atronach"
         }
       ],
-      "formId": "0xFE97D980",
+      "formId": "0xFE97C980",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefClassShock",
@@ -86416,7 +86416,7 @@
           "name": "Conjure Potent Arclight Monarch"
         }
       ],
-      "formId": "0xFE97D981",
+      "formId": "0xFE97C981",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefClassShock",
@@ -86443,7 +86443,7 @@
           "name": "Arclight Rune"
         }
       ],
-      "formId": "0xFE97D9DF",
+      "formId": "0xFE97C9DF",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -86467,7 +86467,7 @@
           "name": "Arclight Damage"
         }
       ],
-      "formId": "0xFE97D9E0",
+      "formId": "0xFE97C9E0",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -86516,7 +86516,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97D9E1",
+      "formId": "0xFE97C9E1",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_ShockArc",
@@ -86567,7 +86567,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97D9E2",
+      "formId": "0xFE97C9E2",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_ShockArc",
@@ -86624,7 +86624,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E814",
+      "formId": "0xFE97D814",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -86674,7 +86674,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E817",
+      "formId": "0xFE97D817",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -86730,7 +86730,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E819",
+      "formId": "0xFE97D819",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -86762,7 +86762,7 @@
           "name": "Necrotic Flame Cloak"
         }
       ],
-      "formId": "0xFE97E81C",
+      "formId": "0xFE97D81C",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_NecroticFireCloak"
@@ -86836,7 +86836,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E81E",
+      "formId": "0xFE97D81E",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -86886,7 +86886,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E821",
+      "formId": "0xFE97D821",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -86929,7 +86929,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E824",
+      "formId": "0xFE97D824",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -86984,7 +86984,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E825",
+      "formId": "0xFE97D825",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -87040,7 +87040,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E828",
+      "formId": "0xFE97D828",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefDeliverTouch",
@@ -87097,7 +87097,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E82A",
+      "formId": "0xFE97D82A",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -87147,7 +87147,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E82D",
+      "formId": "0xFE97D82D",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -87203,7 +87203,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E82F",
+      "formId": "0xFE97D82F",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefDeliverTouch",
@@ -87254,7 +87254,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E831",
+      "formId": "0xFE97D831",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -87310,7 +87310,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E833",
+      "formId": "0xFE97D833",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefDeliverTouch",
@@ -87367,7 +87367,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E835",
+      "formId": "0xFE97D835",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefDeliverTouch",
@@ -87417,7 +87417,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E876",
+      "formId": "0xFE97D876",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -87465,7 +87465,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E87B",
+      "formId": "0xFE97D87B",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -87490,7 +87490,7 @@
           "name": "Necrotic Fire Rune"
         }
       ],
-      "formId": "0xFE97E888",
+      "formId": "0xFE97D888",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -87516,7 +87516,7 @@
           "name": "Greater Necrotic Fire Rune"
         }
       ],
-      "formId": "0xFE97E88B",
+      "formId": "0xFE97D88B",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -87565,7 +87565,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E8AE",
+      "formId": "0xFE97D8AE",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -87590,7 +87590,7 @@
           "name": "Necrotic Fire Damage"
         }
       ],
-      "formId": "0xFE97E957",
+      "formId": "0xFE97D957",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -87615,7 +87615,7 @@
           "name": "Necrotic Fire Damage"
         }
       ],
-      "formId": "0xFE97E958",
+      "formId": "0xFE97D958",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -87646,7 +87646,7 @@
           "name": "Conjure Potent Necrotic Flame Atronach"
         }
       ],
-      "formId": "0xFE97E959",
+      "formId": "0xFE97D959",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefClassNecromancy",
@@ -87679,7 +87679,7 @@
           "name": "Conjure Potent Necrotic Flame Monarch"
         }
       ],
-      "formId": "0xFE97E95A",
+      "formId": "0xFE97D95A",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefClassNecromancy",
@@ -87736,7 +87736,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E960",
+      "formId": "0xFE97D960",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -87792,7 +87792,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E961",
+      "formId": "0xFE97D961",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -87842,7 +87842,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E978",
+      "formId": "0xFE97D978",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -87874,7 +87874,7 @@
           "name": "Conjure Potent Necrotic Flame Atronach"
         }
       ],
-      "formId": "0xFE97E99F",
+      "formId": "0xFE97D99F",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefClassNecromancy",
@@ -87907,7 +87907,7 @@
           "name": "Conjure Potent Necrotic Flame Monarch"
         }
       ],
-      "formId": "0xFE97E9A0",
+      "formId": "0xFE97D9A0",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefClassNecromancy",
@@ -87964,7 +87964,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E9A1",
+      "formId": "0xFE97D9A1",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -88020,7 +88020,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E9A2",
+      "formId": "0xFE97D9A2",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -88076,7 +88076,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E9A3",
+      "formId": "0xFE97D9A3",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -88132,7 +88132,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E9A4",
+      "formId": "0xFE97D9A4",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -88206,7 +88206,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E9A5",
+      "formId": "0xFE97D9A5",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -88238,7 +88238,7 @@
           "name": "Necrotic Flame Cloak"
         }
       ],
-      "formId": "0xFE97E9A6",
+      "formId": "0xFE97D9A6",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_NecroticFireCloak"
@@ -88288,7 +88288,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E9A7",
+      "formId": "0xFE97D9A7",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -88338,7 +88338,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E9A8",
+      "formId": "0xFE97D9A8",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_NecroticFire"
@@ -88381,7 +88381,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E9A9",
+      "formId": "0xFE97D9A9",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -88417,7 +88417,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E9B4",
+      "formId": "0xFE97D9B4",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -88466,7 +88466,7 @@
           "name": "Weaken Weapons"
         }
       ],
-      "formId": "0xFE97E9C0",
+      "formId": "0xFE97D9C0",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -88515,7 +88515,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97F810",
+      "formId": "0xFE97E810",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Shadow"
@@ -88559,7 +88559,7 @@
           "name": "Shadow Anguish"
         }
       ],
-      "formId": "0xFE97F829",
+      "formId": "0xFE97E829",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Shadow"
@@ -88585,7 +88585,7 @@
           "name": "Shadow Rune"
         }
       ],
-      "formId": "0xFE97F82A",
+      "formId": "0xFE97E82A",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Shadow"
@@ -88611,7 +88611,7 @@
           "name": "Abyssal Shadow Rune"
         }
       ],
-      "formId": "0xFE97F82B",
+      "formId": "0xFE97E82B",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Shadow"
@@ -88661,7 +88661,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97F831",
+      "formId": "0xFE97E831",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Shadow"
@@ -88693,7 +88693,7 @@
           "name": "Shadow Aura"
         }
       ],
-      "formId": "0xFE97F838",
+      "formId": "0xFE97E838",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_ShadowCloak"
@@ -88737,7 +88737,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97F83A",
+      "formId": "0xFE97E83A",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -88774,7 +88774,7 @@
           "name": "Shadow Anguish"
         }
       ],
-      "formId": "0xFE97F83F",
+      "formId": "0xFE97E83F",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -88799,7 +88799,7 @@
           "name": "Shadow Damage"
         }
       ],
-      "formId": "0xFE97F844",
+      "formId": "0xFE97E844",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -88824,7 +88824,7 @@
           "name": "Shadow Damage"
         }
       ],
-      "formId": "0xFE97F84C",
+      "formId": "0xFE97E84C",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -88867,7 +88867,7 @@
           "name": "Shadow Anguish"
         }
       ],
-      "formId": "0xFE97F860",
+      "formId": "0xFE97E860",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Shadow"
@@ -88917,7 +88917,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97F86F",
+      "formId": "0xFE97E86F",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Shadow"
@@ -88985,7 +88985,7 @@
           "name": "Shadow Eruption 20"
         }
       ],
-      "formId": "0xFE97F974",
+      "formId": "0xFE97E974",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -89034,7 +89034,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97FA8C",
+      "formId": "0xFE97EA8C",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Shadow",
@@ -89085,7 +89085,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97FA8D",
+      "formId": "0xFE97EA8D",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Shadow",
@@ -89136,7 +89136,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97FA8E",
+      "formId": "0xFE97EA8E",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Shadow",
@@ -89187,7 +89187,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97FA8F",
+      "formId": "0xFE97EA8F",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Shadow",
@@ -89226,7 +89226,7 @@
           "name": "Shadow Enfeeblement"
         }
       ],
-      "formId": "0xFE97FABC",
+      "formId": "0xFE97EABC",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellEnhance_CritShadowInvis"
@@ -89276,7 +89276,7 @@
           "name": "Shadow Enfeeblement"
         }
       ],
-      "formId": "0xFE97FAC1",
+      "formId": "0xFE97EAC1",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -89307,7 +89307,7 @@
           "name": "Shadow Chains"
         }
       ],
-      "formId": "0xFE97FACB",
+      "formId": "0xFE97EACB",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellCurse_Shadow"
@@ -89345,7 +89345,7 @@
           "name": "Shadow Bane"
         }
       ],
-      "formId": "0xFE97FACC",
+      "formId": "0xFE97EACC",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellCurse_Shadow"
@@ -89371,7 +89371,7 @@
           "name": "Shadow Soul"
         }
       ],
-      "formId": "0xFE97FACD",
+      "formId": "0xFE97EACD",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellCurse_Shadow"
@@ -89397,7 +89397,7 @@
           "name": "Shadow Enfeeblement"
         }
       ],
-      "formId": "0xFE97FACE",
+      "formId": "0xFE97EACE",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellCurse_Shadow"
@@ -89429,7 +89429,7 @@
           "name": "Shadow Grave"
         }
       ],
-      "formId": "0xFE97FACF",
+      "formId": "0xFE97EACF",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellCurse_Shadow"
@@ -89455,7 +89455,7 @@
           "name": "Conjure Shadow Atronach"
         }
       ],
-      "formId": "0xFE97FB0D",
+      "formId": "0xFE97EB0D",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefClassShadow",
@@ -89482,7 +89482,7 @@
           "name": "Conjure Shadow Monarch"
         }
       ],
-      "formId": "0xFE97FB0E",
+      "formId": "0xFE97EB0E",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefClassShadow",
@@ -89533,7 +89533,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97FB1C",
+      "formId": "0xFE97EB1C",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_Shadow"
@@ -89577,7 +89577,7 @@
           "name": "Shadow Anguish"
         }
       ],
-      "formId": "0xFE97FB1D",
+      "formId": "0xFE97EB1D",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_Shadow"
@@ -89627,7 +89627,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97FB1E",
+      "formId": "0xFE97EB1E",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_Shadow"
@@ -89659,7 +89659,7 @@
           "name": "Shadow Aura"
         }
       ],
-      "formId": "0xFE97FB1F",
+      "formId": "0xFE97EB1F",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_ShadowCloak"
@@ -89709,7 +89709,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97FB21",
+      "formId": "0xFE97EB21",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_Shadow"
@@ -89747,7 +89747,7 @@
           "name": ""
         }
       ],
-      "formId": "0xFE97FB22",
+      "formId": "0xFE97EB22",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellCurse_Shadow"
@@ -89779,7 +89779,7 @@
           "name": ""
         }
       ],
-      "formId": "0xFE97FB23",
+      "formId": "0xFE97EB23",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellCurse_Shadow"
@@ -89817,7 +89817,7 @@
           "name": ""
         }
       ],
-      "formId": "0xFE97FB24",
+      "formId": "0xFE97EB24",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellCurse_Shadow"
@@ -89861,7 +89861,7 @@
           "name": ""
         }
       ],
-      "formId": "0xFE97FB25",
+      "formId": "0xFE97EB25",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellCurse_Shadow"
@@ -89887,7 +89887,7 @@
           "name": "Conjure Shadow Atronach"
         }
       ],
-      "formId": "0xFE97FB26",
+      "formId": "0xFE97EB26",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefClassShadow",
@@ -89926,7 +89926,7 @@
           "name": "Shadow Step"
         }
       ],
-      "formId": "0xFE97FB88",
+      "formId": "0xFE97EB88",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -89963,7 +89963,7 @@
           "name": "Abyssal Shadow Step"
         }
       ],
-      "formId": "0xFE97FB89",
+      "formId": "0xFE97EB89",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellSpace_Teleport"
@@ -90001,7 +90001,7 @@
           "name": "Shadow Ambush"
         }
       ],
-      "formId": "0xFE97FBA0",
+      "formId": "0xFE97EBA0",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Shadow"
@@ -90051,7 +90051,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97FBA6",
+      "formId": "0xFE97EBA6",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -90100,7 +90100,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97FBA7",
+      "formId": "0xFE97EBA7",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -90125,7 +90125,7 @@
           "name": "Shadow Mark"
         }
       ],
-      "formId": "0xFE97FBAC",
+      "formId": "0xFE97EBAC",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -90162,7 +90162,7 @@
           "name": "Shadow Detonation"
         }
       ],
-      "formId": "0xFE97FBB6",
+      "formId": "0xFE97EBB6",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -90211,7 +90211,7 @@
           "name": "Shadow Detonation"
         }
       ],
-      "formId": "0xFE97FBBA",
+      "formId": "0xFE97EBBA",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -90266,7 +90266,7 @@
           "name": "Shadow Detonation"
         }
       ],
-      "formId": "0xFE97FBBB",
+      "formId": "0xFE97EBBB",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -90309,7 +90309,7 @@
           "name": "Shadow Anguish"
         }
       ],
-      "formId": "0xFE97FBE4",
+      "formId": "0xFE97EBE4",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -90351,7 +90351,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97FBE5",
+      "formId": "0xFE97EBE5",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -90393,7 +90393,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97FBE6",
+      "formId": "0xFE97EBE6",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -90442,7 +90442,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97FBF3",
+      "formId": "0xFE97EBF3",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Shadow"
@@ -90474,7 +90474,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97FBFC",
+      "formId": "0xFE97EBFC",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -90505,7 +90505,7 @@
           "name": "Sneak Effect Controller"
         }
       ],
-      "formId": "0xFE97FBFD",
+      "formId": "0xFE97EBFD",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -90548,7 +90548,7 @@
           "name": "Shadow Anguish"
         }
       ],
-      "formId": "0xFE97FC0B",
+      "formId": "0xFE97EC0B",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -90591,7 +90591,7 @@
           "name": "Shadow Anguish"
         }
       ],
-      "formId": "0xFE97FC0C",
+      "formId": "0xFE97EC0C",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefSpellDamage_Shadow"
@@ -90617,7 +90617,7 @@
           "name": "Conjure Shadow Wolf"
         }
       ],
-      "formId": "0xFE97FC31",
+      "formId": "0xFE97EC31",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -91339,7 +91339,7 @@
           "name": "Black Mass Hysteria"
         }
       ],
-      "formId": "0xFE987857",
+      "formId": "0xFE986857",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -91364,7 +91364,7 @@
           "name": "Spirit of Midnight"
         }
       ],
-      "formId": "0xFE987818",
+      "formId": "0xFE986818",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -91389,7 +91389,7 @@
           "name": "Frost Cloak"
         }
       ],
-      "formId": "0xFE987819",
+      "formId": "0xFE986819",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -91419,7 +91419,7 @@
           "name": "Slow"
         }
       ],
-      "formId": "0xFE987824",
+      "formId": "0xFE986824",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -91444,7 +91444,7 @@
           "name": "Necrotic Durability"
         }
       ],
-      "formId": "0xFE98782E",
+      "formId": "0xFE98682E",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -91469,7 +91469,7 @@
           "name": "Necrotic Adaptability"
         }
       ],
-      "formId": "0xFE98782F",
+      "formId": "0xFE98682F",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -91500,7 +91500,7 @@
           "name": "Viper's Strike"
         }
       ],
-      "formId": "0xFE987842",
+      "formId": "0xFE986842",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -91530,7 +91530,7 @@
           "name": "Scarring Burns Aimed Concentration"
         }
       ],
-      "formId": "0xFE987851",
+      "formId": "0xFE986851",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -91555,7 +91555,7 @@
           "name": "Shadowflame Cloak"
         }
       ],
-      "formId": "0xFE987853",
+      "formId": "0xFE986853",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -91580,7 +91580,7 @@
           "name": "Transmute Bread"
         }
       ],
-      "formId": "0xFE9E99EE",
+      "formId": "0xFE9E89EE",
       "keywords": [
         "OCF_EquipTypeEitherHand",
         "OCF_MgefClassDruid",
@@ -91606,7 +91606,7 @@
           "name": "Reynos' Fins - Invisible"
         }
       ],
-      "formId": "0xFEA11809",
+      "formId": "0xFEA10809",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -91630,7 +91630,7 @@
           "name": "Stagger Attack"
         }
       ],
-      "formId": "0xFEA21806",
+      "formId": "0xFEA20806",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -91655,7 +91655,7 @@
           "name": "Paralyze"
         }
       ],
-      "formId": "0xFEA2180E",
+      "formId": "0xFEA2080E",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -91679,7 +91679,7 @@
           "name": "DSexp"
         }
       ],
-      "formId": "0xFEA23810",
+      "formId": "0xFEA22810",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -91709,7 +91709,7 @@
           "name": "EBfire"
         }
       ],
-      "formId": "0xFEA24807",
+      "formId": "0xFEA23807",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -91733,7 +91733,7 @@
           "name": "Eldritch Blast21"
         }
       ],
-      "formId": "0xFEA24815",
+      "formId": "0xFEA23815",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -91757,7 +91757,7 @@
           "name": "Eldritch Blast31"
         }
       ],
-      "formId": "0xFEA2481A",
+      "formId": "0xFEA2381A",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -91781,7 +91781,7 @@
           "name": "EBfire"
         }
       ],
-      "formId": "0xFEA24820",
+      "formId": "0xFEA23820",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -91805,7 +91805,7 @@
           "name": "Eldritch Blast22"
         }
       ],
-      "formId": "0xFEA24821",
+      "formId": "0xFEA23821",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -91829,7 +91829,7 @@
           "name": "Eldritch Blast32"
         }
       ],
-      "formId": "0xFEA24822",
+      "formId": "0xFEA23822",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -91853,7 +91853,7 @@
           "name": "Eldritch Blast33"
         }
       ],
-      "formId": "0xFEA24823",
+      "formId": "0xFEA23823",
       "keywords": [
         "OCF_EquipTypeVoice"
       ],
@@ -115353,7 +115353,7 @@
           "name": "Shadow Anguish"
         }
       ],
-      "formId": "0xFEA40812",
+      "formId": "0xFEA3F812",
       "keywords": [
         "OCF_EquipTypeLeftHand",
         "OCF_MgefSpellDamage_Shadow"
@@ -115378,7 +115378,7 @@
           "name": "SlashRight"
         }
       ],
-      "formId": "0xFEA4CD80",
+      "formId": "0xFEA4BD80",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -115402,7 +115402,7 @@
           "name": "SlashLeft"
         }
       ],
-      "formId": "0xFEA4CD81",
+      "formId": "0xFEA4BD81",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -115445,7 +115445,7 @@
           "name": "Harsh Lesson"
         }
       ],
-      "formId": "0xFEA4D817",
+      "formId": "0xFEA4C817",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -115476,7 +115476,7 @@
           "name": "Frostfall Aimed Concentration"
         }
       ],
-      "formId": "0xFEA4D81C",
+      "formId": "0xFEA4C81C",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -115500,7 +115500,7 @@
           "name": "BearSlamEff"
         }
       ],
-      "formId": "0xFEA4D820",
+      "formId": "0xFEA4C820",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -115530,7 +115530,7 @@
           "name": "Harsh Lesson"
         }
       ],
-      "formId": "0xFEA4F98C",
+      "formId": "0xFEA4E98C",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -115931,7 +115931,7 @@
           "name": "Conjure Kinomaru"
         }
       ],
-      "formId": "0xFEA5084D",
+      "formId": "0xFEA4F84D",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -115956,7 +115956,7 @@
           "name": "Conjure Dragonguard Monk"
         }
       ],
-      "formId": "0xFEA5084E",
+      "formId": "0xFEA4F84E",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -115981,7 +115981,7 @@
           "name": "Conjure Dragonguard Archer"
         }
       ],
-      "formId": "0xFEA5085B",
+      "formId": "0xFEA4F85B",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -116006,7 +116006,7 @@
           "name": "FireRuneStomp"
         }
       ],
-      "formId": "0xFEA50969",
+      "formId": "0xFEA4F969",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -116030,7 +116030,7 @@
           "name": "0_SpellofMagusEff"
         }
       ],
-      "formId": "0xFEA50853",
+      "formId": "0xFEA4F853",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -116055,7 +116055,7 @@
           "name": "Conjure Agyo the Giant"
         }
       ],
-      "formId": "0xFEA50856",
+      "formId": "0xFEA4F856",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -116086,7 +116086,7 @@
           "name": "Slow"
         }
       ],
-      "formId": "0xFEA50850",
+      "formId": "0xFEA4F850",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -116111,7 +116111,7 @@
           "name": "Conjure Kensei"
         }
       ],
-      "formId": "0xFEA5096A",
+      "formId": "0xFEA4F96A",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -116136,7 +116136,7 @@
           "name": "Conjure Dragonguard General"
         }
       ],
-      "formId": "0xFEA50854",
+      "formId": "0xFEA4F854",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -116173,7 +116173,7 @@
           "name": "Ice Form"
         }
       ],
-      "formId": "0xFEA50858",
+      "formId": "0xFEA4F858",
       "keywords": [
         "OCF_EquipTypeLeftHand"
       ],
@@ -116198,7 +116198,7 @@
           "name": "Conjure Dragonguard Halberd"
         }
       ],
-      "formId": "0xFEA50864",
+      "formId": "0xFEA4F864",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -116222,7 +116222,7 @@
           "name": "BossSlamAttack"
         }
       ],
-      "formId": "0xFEA50855",
+      "formId": "0xFEA4F855",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -116266,7 +116266,7 @@
           "name": "Mayhem"
         }
       ],
-      "formId": "0xFEA5084C",
+      "formId": "0xFEA4F84C",
       "keywords": [
         "OCF_EquipTypeBothHands"
       ],
@@ -116297,7 +116297,7 @@
           "name": "Restore Stamina"
         }
       ],
-      "formId": "0xFEA50861",
+      "formId": "0xFEA4F861",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -116322,7 +116322,7 @@
           "name": "LightningExplosionStomp"
         }
       ],
-      "formId": "0xFEA50866",
+      "formId": "0xFEA4F866",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -116364,7 +116364,7 @@
           "name": "Scarring Burns Self Area"
         }
       ],
-      "formId": "0xFEA5096E",
+      "formId": "0xFEA4F96E",
       "keywords": [
         "OCF_EquipTypeBothHands",
         "OCF_MgefSpellDamage_Fire"
@@ -116390,7 +116390,7 @@
           "name": "HeirloomBladeEff"
         }
       ],
-      "formId": "0xFEA5096F",
+      "formId": "0xFEA4F96F",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -116422,7 +116422,7 @@
           "name": "FlamingThrallEff"
         }
       ],
-      "formId": "0xFEA50971",
+      "formId": "0xFEA4F971",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -116447,7 +116447,7 @@
           "name": "LightningExplosionStomp2"
         }
       ],
-      "formId": "0xFEA5084B",
+      "formId": "0xFEA4F84B",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -116625,7 +116625,7 @@
           "name": "Seht's Brilliance - Centurion"
         }
       ],
-      "formId": "0xFEA97869",
+      "formId": "0xFEA96869",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -116650,7 +116650,7 @@
           "name": "Seht's Brilliance - Sphere"
         }
       ],
-      "formId": "0xFEA9786A",
+      "formId": "0xFEA9686A",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -116675,7 +116675,7 @@
           "name": "Seht's Brilliance - Spider"
         }
       ],
-      "formId": "0xFEA9786B",
+      "formId": "0xFEA9686B",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
@@ -117074,7 +117074,7 @@
           "name": "Self-Fear"
         }
       ],
-      "formId": "0xFEAC1DB3",
+      "formId": "0xFEAC0DB3",
       "keywords": [
         "OCF_EquipTypeEitherHand"
       ],
